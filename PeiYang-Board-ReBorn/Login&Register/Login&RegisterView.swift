@@ -6,18 +6,24 @@
 //
 
 import SwiftUI
+import FirebaseAuth
+import AuthenticationServices
 
 struct LoginAndRegisterView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmpassword: String = ""
     @State private var signswitch: String = "已注册？"
+    @State private var showAlertToggle = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
+    @State private var showProfileView = false
     
     enum Signpage {
         case login
         case register
     }
-    @State private var signpage = Signpage.login
+    @State private var signpage = Signpage.register
     
     
     var body: some View {
@@ -167,7 +173,7 @@ struct LoginAndRegisterView: View {
                 HStack{
                     Spacer()
                     Button(action: {
-                        print("SignUp")
+                        submit()
                     }, label: {
                         Image("Submit_Login")
                             .overlay(
@@ -177,13 +183,41 @@ struct LoginAndRegisterView: View {
                                     .offset(y: -2)  //字样Y轴居中
                             )
                     })
+
                 }
                 .padding(.trailing, 40)
 
                 Spacer()
             }
+            .onAppear(){
+                Auth.auth().addStateDidChangeListener{
+                    auth, user in
+                    if user != nil {
+                        showProfileView = true
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $showProfileView) {
+                ProfileOnRegister()
+            }
             .animation(Animation.spring(),value: signpage)
         }
+    }
+    
+    func submit() {
+        if(signpage == .register && password == confirmpassword){
+            Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+                guard error == nil else {
+                    alertTitle = "Uh-Oh!"
+                    alertMessage = error!.localizedDescription
+                    showAlertToggle.toggle()
+                    return
+                }
+            }
+        } else if(signpage == .register && password != confirmpassword){
+            print("两次密码不同！！")
+        }
+
     }
 }
 

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Firebase
+import FirebaseAuth
 
 @main
 struct PeiYang_Board_ReBornApp: App {
