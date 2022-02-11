@@ -11,6 +11,7 @@ import SwiftUI
 struct UserData{
     @AppStorage("isNeedLogin") var isNeedLogin: Bool = true
     @AppStorage("username") var userName: String = "007"
+    @AppStorage("password") var password: String = "1234"
     @AppStorage("nickname") var nickname: String = "游客"
 }
 

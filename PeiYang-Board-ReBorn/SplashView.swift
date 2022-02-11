@@ -50,7 +50,7 @@ struct SplashView: View {
                 .onAppear(perform: end_splashing)
             } else if !userData.isNeedLogin {
                 MainView() //如果不需要登陆，进入主页面
-                    .onAppear(perform: InitAll)
+//                    .onAppear(perform: InitAll)
                     .onAppear(){
                         print(userData.isNeedLogin)
                     }

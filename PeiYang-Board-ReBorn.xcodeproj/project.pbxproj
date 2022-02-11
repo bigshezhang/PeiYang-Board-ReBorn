@@ -11,6 +11,30 @@
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
 		E08246CB27B6168600A5A838 /* FZMSTJW.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E08246C827B6168600A5A838 /* FZMSTJW.TTF */; };
 		E08246CC27B6168600A5A838 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C927B6168600A5A838 /* Font.swift */; };
+		E08246CE27B616F300A5A838 /* Peiyang-Board-Reborn-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E08246CD27B616F300A5A838 /* Peiyang-Board-Reborn-Info.plist */; };
+		E08246D127B6173400A5A838 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246CF27B6173400A5A838 /* TabBarView.swift */; };
+		E08246D227B6173400A5A838 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246D027B6173400A5A838 /* ViewRouter.swift */; };
+		E08246F227B6177400A5A838 /* MainPageDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E127B6177400A5A838 /* MainPageDetail.swift */; };
+		E08246F327B6177400A5A838 /* MainPageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E227B6177400A5A838 /* MainPageHeader.swift */; };
+		E08246F427B6177400A5A838 /* MainWeekIndicator2.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E327B6177400A5A838 /* MainWeekIndicator2.swift */; };
+		E08246F527B6177400A5A838 /* Home_components.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E427B6177400A5A838 /* Home_components.swift */; };
+		E08246F627B6177400A5A838 /* MainPageNaviList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E527B6177400A5A838 /* MainPageNaviList.swift */; };
+		E08246F727B6177400A5A838 /* MainPageNaviRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E627B6177400A5A838 /* MainPageNaviRow.swift */; };
+		E08246F827B6177400A5A838 /* MainWeekIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246E727B6177400A5A838 /* MainWeekIndicator.swift */; };
+		E08246FA27B617BF00A5A838 /* CurrentTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246F927B617BF00A5A838 /* CurrentTime.swift */; };
+		E08246FC27B617CC00A5A838 /* ScreenBounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246FB27B617CC00A5A838 /* ScreenBounds.swift */; };
+		E08246FE27B617DE00A5A838 /* NumberToChinese.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246FD27B617DE00A5A838 /* NumberToChinese.swift */; };
+		E082470027B6185A00A5A838 /* NotisStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246FF27B6185A00A5A838 /* NotisStorage.swift */; };
+		E082470C27B618FB00A5A838 /* LoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082470627B618FB00A5A838 /* LoginPage.swift */; };
+		E082470D27B618FB00A5A838 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082470927B618FB00A5A838 /* LoginTextField.swift */; };
+		E082471327B6190900A5A838 /* RegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471027B6190900A5A838 /* RegisterPage.swift */; };
+		E082471427B6190900A5A838 /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471227B6190900A5A838 /* RegisterTextField.swift */; };
+		E082471B27B61C4C00A5A838 /* DoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471527B61C4B00A5A838 /* DoneView.swift */; };
+		E082471C27B61C4C00A5A838 /* StarBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471627B61C4B00A5A838 /* StarBoxView.swift */; };
+		E082471D27B61C4C00A5A838 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471727B61C4B00A5A838 /* MainView.swift */; };
+		E082471E27B61C4C00A5A838 /* NotDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471827B61C4C00A5A838 /* NotDoneView.swift */; };
+		E082471F27B61C4C00A5A838 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471927B61C4C00A5A838 /* HomeView.swift */; };
+		E082472027B61C4C00A5A838 /* AllNotisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E082471A27B61C4C00A5A838 /* AllNotisView.swift */; };
 		E0AB5E9927B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */; };
 		E0AB5E9B27B60CFB003D8C0F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AB5E9A27B60CFB003D8C0F /* ContentView.swift */; };
 		E0AB5E9D27B60CFD003D8C0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0AB5E9C27B60CFD003D8C0F /* Assets.xcassets */; };
@@ -27,6 +51,30 @@
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
 		E08246C827B6168600A5A838 /* FZMSTJW.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZMSTJW.TTF; sourceTree = "<group>"; };
 		E08246C927B6168600A5A838 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		E08246CD27B616F300A5A838 /* Peiyang-Board-Reborn-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Peiyang-Board-Reborn-Info.plist"; sourceTree = "<group>"; };
+		E08246CF27B6173400A5A838 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		E08246D027B6173400A5A838 /* ViewRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		E08246E127B6177400A5A838 /* MainPageDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageDetail.swift; sourceTree = "<group>"; };
+		E08246E227B6177400A5A838 /* MainPageHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageHeader.swift; sourceTree = "<group>"; };
+		E08246E327B6177400A5A838 /* MainWeekIndicator2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWeekIndicator2.swift; sourceTree = "<group>"; };
+		E08246E427B6177400A5A838 /* Home_components.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home_components.swift; sourceTree = "<group>"; };
+		E08246E527B6177400A5A838 /* MainPageNaviList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageNaviList.swift; sourceTree = "<group>"; };
+		E08246E627B6177400A5A838 /* MainPageNaviRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageNaviRow.swift; sourceTree = "<group>"; };
+		E08246E727B6177400A5A838 /* MainWeekIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWeekIndicator.swift; sourceTree = "<group>"; };
+		E08246F927B617BF00A5A838 /* CurrentTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTime.swift; sourceTree = "<group>"; };
+		E08246FB27B617CC00A5A838 /* ScreenBounds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenBounds.swift; sourceTree = "<group>"; };
+		E08246FD27B617DE00A5A838 /* NumberToChinese.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberToChinese.swift; sourceTree = "<group>"; };
+		E08246FF27B6185A00A5A838 /* NotisStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotisStorage.swift; sourceTree = "<group>"; };
+		E082470627B618FB00A5A838 /* LoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPage.swift; sourceTree = "<group>"; };
+		E082470927B618FB00A5A838 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		E082471027B6190900A5A838 /* RegisterPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPage.swift; sourceTree = "<group>"; };
+		E082471227B6190900A5A838 /* RegisterTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		E082471527B61C4B00A5A838 /* DoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneView.swift; sourceTree = "<group>"; };
+		E082471627B61C4B00A5A838 /* StarBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarBoxView.swift; sourceTree = "<group>"; };
+		E082471727B61C4B00A5A838 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E082471827B61C4C00A5A838 /* NotDoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotDoneView.swift; sourceTree = "<group>"; };
+		E082471927B61C4C00A5A838 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E082471A27B61C4C00A5A838 /* AllNotisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllNotisView.swift; sourceTree = "<group>"; };
 		E0AB5E9527B60CFB003D8C0F /* PeiYang-Board-ReBorn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PeiYang-Board-ReBorn.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeiYang_Board_ReBornApp.swift; sourceTree = "<group>"; };
 		E0AB5E9A27B60CFB003D8C0F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				E08246C127B6148800A5A838 /* UserData.swift */,
+				E08246FF27B6185A00A5A838 /* NotisStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -61,7 +110,7 @@
 		E08246C327B615F000A5A838 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				E08246C527B6166B00A5A838 /* MainPage */,
+				E08246C527B6166B00A5A838 /* MainPages */,
 				E08246C427B6165600A5A838 /* TabBar */,
 			);
 			path = HomeView;
@@ -70,15 +119,20 @@
 		E08246C427B6165600A5A838 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				E08246CF27B6173400A5A838 /* TabBarView.swift */,
+				E08246D027B6173400A5A838 /* ViewRouter.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		E08246C527B6166B00A5A838 /* MainPage */ = {
+		E08246C527B6166B00A5A838 /* MainPages */ = {
 			isa = PBXGroup;
 			children = (
+				E08246DF27B6177400A5A838 /* Model */,
+				E08246E027B6177400A5A838 /* View */,
+				E08246D727B6177400A5A838 /* Controller */,
 			);
-			path = MainPage;
+			path = MainPages;
 			sourceTree = "<group>";
 		};
 		E08246C627B6168600A5A838 /* Font */ = {
@@ -89,6 +143,98 @@
 				E08246C927B6168600A5A838 /* Font.swift */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		E08246D727B6177400A5A838 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E082471A27B61C4C00A5A838 /* AllNotisView.swift */,
+				E082471527B61C4B00A5A838 /* DoneView.swift */,
+				E082471927B61C4C00A5A838 /* HomeView.swift */,
+				E082471727B61C4B00A5A838 /* MainView.swift */,
+				E082471827B61C4C00A5A838 /* NotDoneView.swift */,
+				E082471627B61C4B00A5A838 /* StarBoxView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E08246DF27B6177400A5A838 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E08246E027B6177400A5A838 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E08246E127B6177400A5A838 /* MainPageDetail.swift */,
+				E08246E227B6177400A5A838 /* MainPageHeader.swift */,
+				E08246E327B6177400A5A838 /* MainWeekIndicator2.swift */,
+				E08246E427B6177400A5A838 /* Home_components.swift */,
+				E08246E527B6177400A5A838 /* MainPageNaviList.swift */,
+				E08246E627B6177400A5A838 /* MainPageNaviRow.swift */,
+				E08246E727B6177400A5A838 /* MainWeekIndicator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E082470127B618FB00A5A838 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				E082470527B618FB00A5A838 /* Controller */,
+				E082470727B618FB00A5A838 /* Model */,
+				E082470827B618FB00A5A838 /* View */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		E082470527B618FB00A5A838 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E082470627B618FB00A5A838 /* LoginPage.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E082470727B618FB00A5A838 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E082470827B618FB00A5A838 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E082470927B618FB00A5A838 /* LoginTextField.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E082470E27B6190900A5A838 /* RegisterView */ = {
+			isa = PBXGroup;
+			children = (
+				E082470F27B6190900A5A838 /* Controller */,
+				E082471127B6190900A5A838 /* View */,
+			);
+			path = RegisterView;
+			sourceTree = "<group>";
+		};
+		E082470F27B6190900A5A838 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E082471027B6190900A5A838 /* RegisterPage.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E082471127B6190900A5A838 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E082471227B6190900A5A838 /* RegisterTextField.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E0AB5E8C27B60CFB003D8C0F = {
@@ -112,14 +258,17 @@
 			children = (
 				E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */,
 				E0AB5EB027B60E9A003D8C0F /* SplashView.swift */,
+				E082470127B618FB00A5A838 /* LoginView */,
+				E082470E27B6190900A5A838 /* RegisterView */,
 				E08246C327B615F000A5A838 /* HomeView */,
 				E08246C027B6142F00A5A838 /* Storage */,
-				E0AB5EA127B60CFD003D8C0F /* Persistence.swift */,
-				E0AB5E9A27B60CFB003D8C0F /* ContentView.swift */,
 				E08246C627B6168600A5A838 /* Font */,
 				E0AB5EAB27B60D2B003D8C0F /* Helpers */,
 				E0AB5EA327B60CFD003D8C0F /* PeiYang_Board_ReBorn.xcdatamodeld */,
+				E08246CD27B616F300A5A838 /* Peiyang-Board-Reborn-Info.plist */,
 				E0AB5E9C27B60CFD003D8C0F /* Assets.xcassets */,
+				E0AB5EA127B60CFD003D8C0F /* Persistence.swift */,
+				E0AB5E9A27B60CFB003D8C0F /* ContentView.swift */,
 				E0AB5E9E27B60CFD003D8C0F /* Preview Content */,
 			);
 			path = "PeiYang-Board-ReBorn";
@@ -138,6 +287,9 @@
 			children = (
 				E0AB5EAC27B60D2B003D8C0F /* VisualEffectBlur.swift */,
 				E0AB5EAD27B60D2B003D8C0F /* ImagePicker.swift */,
+				E08246F927B617BF00A5A838 /* CurrentTime.swift */,
+				E08246FB27B617CC00A5A838 /* ScreenBounds.swift */,
+				E08246FD27B617DE00A5A838 /* NumberToChinese.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -202,6 +354,7 @@
 			files = (
 				E08246CB27B6168600A5A838 /* FZMSTJW.TTF in Resources */,
 				E0AB5EA027B60CFD003D8C0F /* Preview Assets.xcassets in Resources */,
+				E08246CE27B616F300A5A838 /* Peiyang-Board-Reborn-Info.plist in Resources */,
 				E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */,
 				E0AB5E9D27B60CFD003D8C0F /* Assets.xcassets in Resources */,
 			);
@@ -214,15 +367,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E08246FC27B617CC00A5A838 /* ScreenBounds.swift in Sources */,
+				E08246F527B6177400A5A838 /* Home_components.swift in Sources */,
+				E08246F327B6177400A5A838 /* MainPageHeader.swift in Sources */,
+				E08246F427B6177400A5A838 /* MainWeekIndicator2.swift in Sources */,
+				E082471327B6190900A5A838 /* RegisterPage.swift in Sources */,
 				E0AB5EAE27B60D2B003D8C0F /* VisualEffectBlur.swift in Sources */,
+				E08246FA27B617BF00A5A838 /* CurrentTime.swift in Sources */,
 				E0AB5EA527B60CFD003D8C0F /* PeiYang_Board_ReBorn.xcdatamodeld in Sources */,
 				E08246C227B6148800A5A838 /* UserData.swift in Sources */,
+				E082470027B6185A00A5A838 /* NotisStorage.swift in Sources */,
+				E082471E27B61C4C00A5A838 /* NotDoneView.swift in Sources */,
+				E08246F627B6177400A5A838 /* MainPageNaviList.swift in Sources */,
 				E0AB5EA227B60CFD003D8C0F /* Persistence.swift in Sources */,
+				E082470C27B618FB00A5A838 /* LoginPage.swift in Sources */,
+				E082472027B61C4C00A5A838 /* AllNotisView.swift in Sources */,
 				E0AB5EAF27B60D2B003D8C0F /* ImagePicker.swift in Sources */,
+				E082471427B6190900A5A838 /* RegisterTextField.swift in Sources */,
+				E082471F27B61C4C00A5A838 /* HomeView.swift in Sources */,
+				E082470D27B618FB00A5A838 /* LoginTextField.swift in Sources */,
 				E08246CC27B6168600A5A838 /* Font.swift in Sources */,
+				E08246F827B6177400A5A838 /* MainWeekIndicator.swift in Sources */,
 				E0AB5E9B27B60CFB003D8C0F /* ContentView.swift in Sources */,
+				E08246F227B6177400A5A838 /* MainPageDetail.swift in Sources */,
+				E08246D227B6173400A5A838 /* ViewRouter.swift in Sources */,
 				E0AB5E9927B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift in Sources */,
+				E082471C27B61C4C00A5A838 /* StarBoxView.swift in Sources */,
+				E08246F727B6177400A5A838 /* MainPageNaviRow.swift in Sources */,
+				E082471B27B61C4C00A5A838 /* DoneView.swift in Sources */,
+				E082471D27B61C4C00A5A838 /* MainView.swift in Sources */,
+				E08246D127B6173400A5A838 /* TabBarView.swift in Sources */,
 				E0AB5EB127B60E9A003D8C0F /* SplashView.swift in Sources */,
+				E08246FE27B617DE00A5A838 /* NumberToChinese.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +537,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,6 +567,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
