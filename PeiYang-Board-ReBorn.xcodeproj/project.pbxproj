@@ -256,10 +256,10 @@
 			children = (
 				E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */,
 				E0AB5EB027B60E9A003D8C0F /* SplashView.swift */,
+				E08246C027B6142F00A5A838 /* Storage */,
 				E082470127B618FB00A5A838 /* LoginView */,
 				E082470E27B6190900A5A838 /* RegisterView */,
 				E08246C327B615F000A5A838 /* HomeView */,
-				E08246C027B6142F00A5A838 /* Storage */,
 				E08246C627B6168600A5A838 /* Font */,
 				E0AB5EAB27B60D2B003D8C0F /* Helpers */,
 				E0AB5EA327B60CFD003D8C0F /* PeiYang_Board_ReBorn.xcdatamodeld */,
@@ -335,6 +335,8 @@
 				Base,
 			);
 			mainGroup = E0AB5E8C27B60CFB003D8C0F;
+			packageReferences = (
+			);
 			productRefGroup = E0AB5E9627B60CFB003D8C0F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
