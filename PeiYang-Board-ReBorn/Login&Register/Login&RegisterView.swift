@@ -8,16 +8,21 @@
 import SwiftUI
 import FirebaseAuth
 import AuthenticationServices
+import CoreMedia
 
 struct LoginAndRegisterView: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmpassword: String = ""
     @State private var signswitch: String = "已注册？"
+
+
+    @State private var showProfileView = false
+    @State private var isSubmitted = false
+    
     @State private var showAlertToggle = false
     @State private var alertTitle = ""
     @State private var alertMessage = ""
-    @State private var showProfileView = false
     
     enum Signpage {
         case login
@@ -157,7 +162,7 @@ struct LoginAndRegisterView: View {
                         HStack{
                             Spacer()
                             Button(action: {
-                                print("forget password")
+                                sendPasswordResetEmail()
                             }, label: {
                                 Text("forget your password")
                                     .foregroundColor(Color("Blue_Login_Text"))
@@ -183,24 +188,27 @@ struct LoginAndRegisterView: View {
                                     .offset(y: -2)  //字样Y轴居中
                             )
                     })
-
+                        .alert(isPresented: $showAlertToggle) {
+                            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .cancel())
+                        }
                 }
                 .padding(.trailing, 40)
 
                 Spacer()
             }
+
+//            .fullScreenCover(isPresented: $showProfileView) {
+//                ProfileOnRegister()
+//            }
+            .animation(Animation.spring(),value: signpage)
             .onAppear(){
                 Auth.auth().addStateDidChangeListener{
                     auth, user in
                     if user != nil {
-                        showProfileView = true
+                        showProfileView.toggle()
                     }
                 }
             }
-            .fullScreenCover(isPresented: $showProfileView) {
-                ProfileOnRegister()
-            }
-            .animation(Animation.spring(),value: signpage)
         }
     }
     
@@ -214,10 +222,35 @@ struct LoginAndRegisterView: View {
                     return
                 }
             }
+            
         } else if(signpage == .register && password != confirmpassword){
-            print("两次密码不同！！")
+            alertTitle = "Uh-Oh"
+            alertMessage = "两次密码不同！"
+            showAlertToggle.toggle()
+        } else if(signpage == .login) {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                guard error == nil else{
+                    alertTitle = "Uh-Oh!"
+                    alertMessage = error!.localizedDescription
+                    showAlertToggle.toggle()
+                    return
+                }
+                print("User is signed in")
+            }
         }
-
+    }
+    
+    func sendPasswordResetEmail(){
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            guard error == nil else {
+                alertTitle = "Uh-Oh!"
+                alertMessage = error!.localizedDescription
+                showAlertToggle.toggle()
+                return
+            }
+            alertTitle = "Password reset email sent"
+            alertMessage = "Go and Check your Email"
+        }
     }
 }
 
