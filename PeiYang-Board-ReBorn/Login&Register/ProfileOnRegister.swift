@@ -35,7 +35,8 @@ struct ProfileOnRegister: View {
     
     Image("ProfileOnRegisterTextfield")
         .overlay(
-            TextField(placeholder, text: value)
+            Text(title)
+            TextField(placeholder, text: $value)
         )
     
 }
