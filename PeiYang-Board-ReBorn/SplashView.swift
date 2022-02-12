@@ -51,7 +51,8 @@ struct SplashView: View {
             } else if !userData.isNeedLogin {
                 MainView() //如果不需要登陆，进入主页面
             } else{
-                LoginAndRegisterView() //需要登陆
+                ProfileOnRegister()
+//                LoginAndRegisterView() //需要登陆
             }
         }
     }
