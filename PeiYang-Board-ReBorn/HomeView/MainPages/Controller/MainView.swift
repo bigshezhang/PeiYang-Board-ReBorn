@@ -38,25 +38,6 @@ struct MainView: View {
     }
 }
 
-//@ViewBuilder
-//func Footer_View() -> some View{
-//    TabView {
-//        NotDoneView()
-//         .tabItem {
-//            Image(systemName: "checkmark.circle")
-//                 .symbolRenderingMode(.hierarchical)
-//                 .foregroundColor(.blue)
-//            Text("已完成")
-//          }
-//        Image(systemName: "figure.walk")
-//         .tabItem {
-//            Image(systemName: "figure.walk")
-//            Text("未完成")
-//          }
-//    }
-//}
-
-
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView(viewRouter: ViewRouter())

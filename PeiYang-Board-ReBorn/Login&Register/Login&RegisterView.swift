@@ -36,12 +36,15 @@ struct LoginAndRegisterView: View {
     var body: some View {
         if(!isSigned){
             SignCard()
+
+                .opacity(isSigned ? 0 : 1)
+                .animation(Animation.easeInOut(duration: 0.7), value: isSigned)
         } else {
             MainView(viewRouter: viewRouter)
-                .onAppear {
-                    viewRouter.currentPage = .AllNotis
-                }
+                .opacity(isSigned ? 1 : 0)
+                .animation(Animation.easeInOut(duration: 0.7), value: isSigned)
 
+            
         }
     }
     
@@ -231,7 +234,7 @@ struct LoginAndRegisterView: View {
 //            .onAppear() {
 //            }
             .fullScreenCover(isPresented: $showProfileView) {
-            ProfileOnRegister()
+                ProfileOnRegister()
             }
             .animation(Animation.spring(),value: signpage)
         }
@@ -292,14 +295,11 @@ struct LoginAndRegisterView: View {
     }
     
     func end_sign() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            // 结束splash
-            withAnimation(.spring()){
+        withAnimation(.easeInOut(duration: 0.7)){
+            viewRouter.currentPage = .AllNotis
                isSigned = true
-            }
         }
     }
-    
 }
 
 struct LoginAndRegisterView_Previews: PreviewProvider {
