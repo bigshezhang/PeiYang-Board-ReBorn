@@ -28,6 +28,7 @@ struct AllNotisView: View {
                     VStack{
                         MainPageHeader()
                             .onTapGesture {
+                                userData.UserAccountClean()
                                 viewRouter.isShow.toggle()
                             }
                             .padding(.top)

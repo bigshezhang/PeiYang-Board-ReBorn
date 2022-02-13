@@ -11,6 +11,8 @@ import AuthenticationServices
 import CoreMedia
 
 struct LoginAndRegisterView: View {
+    @StateObject var viewRouter: ViewRouter
+    
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmpassword: String = ""
@@ -179,6 +181,18 @@ struct LoginAndRegisterView: View {
                     Spacer()
                     Button(action: {
                         submit()
+                        if(signpage == .register){      //点击后再开始验证监听
+                            Auth.auth().addStateDidChangeListener { (auth, user) in
+                                if user != nil {
+                                    showProfileView = true
+                                    print(user!)
+                                    print(auth)
+                                    print("ShowProFile")
+                                }
+                            }
+
+                        }
+
                     }, label: {
                         Image("Submit_Login")
                             .overlay(
@@ -196,19 +210,12 @@ struct LoginAndRegisterView: View {
 
                 Spacer()
             }
-
-//            .fullScreenCover(isPresented: $showProfileView) {
-//                ProfileOnRegister()
+//            .onAppear() {
 //            }
-            .animation(Animation.spring(),value: signpage)
-            .onAppear(){
-                Auth.auth().addStateDidChangeListener{
-                    auth, user in
-                    if user != nil {
-                        showProfileView.toggle()
-                    }
-                }
+            .fullScreenCover(isPresented: $showProfileView) {
+            ProfileOnRegister()
             }
+            .animation(Animation.spring(),value: signpage)
         }
     }
     
@@ -219,8 +226,11 @@ struct LoginAndRegisterView: View {
                     alertTitle = "Uh-Oh!"
                     alertMessage = error!.localizedDescription
                     showAlertToggle.toggle()
+//                    print(error!.localizedDescription)
                     return
                 }
+                userAccountStore()
+//                print("User is signed up")
             }
             
         } else if(signpage == .register && password != confirmpassword){
@@ -235,7 +245,8 @@ struct LoginAndRegisterView: View {
                     showAlertToggle.toggle()
                     return
                 }
-                print("User is signed in")
+                userAccountStore()
+//                print("User is signed in")
             }
         }
     }
@@ -252,10 +263,17 @@ struct LoginAndRegisterView: View {
             alertMessage = "Go and Check your Email"
         }
     }
+    
+    func userAccountStore(){       //持久化用户邮箱和密码，其他的在 userDataStore
+        userData.isNeedLogin = false
+        userData.email = self.email
+        userData.password = self.password //没什么卵用还是存一下
+    }
+    
 }
 
 struct LoginAndRegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginAndRegisterView()
+        LoginAndRegisterView(viewRouter: ViewRouter())
     }
 }

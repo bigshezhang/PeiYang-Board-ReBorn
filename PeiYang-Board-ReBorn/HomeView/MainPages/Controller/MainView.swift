@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
 
-    @StateObject var viewRouter = ViewRouter()
+    @StateObject var viewRouter : ViewRouter
     
     
     var body: some View {
@@ -25,6 +25,10 @@ struct MainView: View {
                 DoneView(viewRouter: viewRouter)
             case .Done:
                 DoneView(viewRouter: viewRouter)
+            case .Login:
+                LoginAndRegisterView(viewRouter: viewRouter)
+            case .Register:
+                LoginAndRegisterView(viewRouter: viewRouter)
             }
             TabBarView(viewRouter: viewRouter)
                 .animation(Animation.default,value: viewRouter.isShow)
@@ -55,6 +59,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(viewRouter: ViewRouter())
     }
 }

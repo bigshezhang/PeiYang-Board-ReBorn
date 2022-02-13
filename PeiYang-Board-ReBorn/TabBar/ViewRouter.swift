@@ -18,6 +18,8 @@ enum Page{
     case NotDone
     case StarBox
     case Search
+    case Login
+    case Register
 }
 
 //struct ViewRouter_Previews: PreviewProvider {
