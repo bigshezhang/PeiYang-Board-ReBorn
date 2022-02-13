@@ -11,7 +11,7 @@ import AuthenticationServices
 import CoreMedia
 
 struct LoginAndRegisterView: View {
-    @StateObject var viewRouter: ViewRouter
+    @StateObject var viewRouter : ViewRouter
     
     @State private var email: String = ""
     @State private var password: String = ""
@@ -20,7 +20,7 @@ struct LoginAndRegisterView: View {
 
 
     @State private var showProfileView = false
-    @State private var isSubmitted = false
+    @State private var isSigned = false //是否登陆，注册成功
     
     @State private var showAlertToggle = false
     @State private var alertTitle = ""
@@ -34,6 +34,20 @@ struct LoginAndRegisterView: View {
     
     
     var body: some View {
+        if(!isSigned){
+            SignCard()
+        } else {
+            MainView(viewRouter: viewRouter)
+                .onAppear {
+                    viewRouter.currentPage = .AllNotis
+                }
+
+        }
+    }
+    
+    
+    
+    @ViewBuilder func SignCard() -> some View{
         ZStack{
             VStack{     //Header和Footer
                 HStack{
@@ -48,9 +62,13 @@ struct LoginAndRegisterView: View {
                         .onTapGesture {
                             if(signpage == .register){
                                 signpage = .login
+                                viewRouter.currentPage = .Login
+                                
                                 signswitch = "未注册？"
                             } else {
                                 signpage = .register
+                                viewRouter.currentPage = .Register
+                                
                                 signswitch = "已注册？"
                             }
                         }
@@ -219,6 +237,7 @@ struct LoginAndRegisterView: View {
         }
     }
     
+    
     func submit() {
         if(signpage == .register && password == confirmpassword){
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
@@ -230,6 +249,7 @@ struct LoginAndRegisterView: View {
                     return
                 }
                 userAccountStore()
+                end_sign()
 //                print("User is signed up")
             }
             
@@ -246,7 +266,8 @@ struct LoginAndRegisterView: View {
                     return
                 }
                 userAccountStore()
-//                print("User is signed in")
+                end_sign()
+                print("User is signed in")
             }
         }
     }
@@ -264,10 +285,19 @@ struct LoginAndRegisterView: View {
         }
     }
     
-    func userAccountStore(){       //持久化用户邮箱和密码，其他的在 userDataStore
+    func userAccountStore(){       //持久化用户数据
         userData.isNeedLogin = false
         userData.email = self.email
         userData.password = self.password //没什么卵用还是存一下
+    }
+    
+    func end_sign() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            // 结束splash
+            withAnimation(.spring()){
+               isSigned = true
+            }
+        }
     }
     
 }

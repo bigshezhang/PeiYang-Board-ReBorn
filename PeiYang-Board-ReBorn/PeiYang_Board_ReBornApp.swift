@@ -16,6 +16,7 @@ struct PeiYang_Board_ReBornApp: App {
     }
     
     let persistenceController = PersistenceController.shared
+    
     @StateObject var viewRouter = ViewRouter()
     
 
