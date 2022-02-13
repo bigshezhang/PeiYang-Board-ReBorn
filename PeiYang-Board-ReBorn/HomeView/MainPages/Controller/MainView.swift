@@ -34,6 +34,7 @@ struct MainView: View {
                 .animation(Animation.default,value: viewRouter.isShow)
                 .offset(y: viewRouter.isShow ? 0 : ByHeight(Scale: 15))
         }
+        .animation(Animation.easeInOut, value: viewRouter.currentPage)
       //  .edgesIgnoringSafeArea(.all)
     }
 }

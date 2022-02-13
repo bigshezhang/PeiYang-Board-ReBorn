@@ -12,31 +12,34 @@ struct TabBarView: View {
     @StateObject var viewRouter: ViewRouter
     
     var body: some View {
-        GeometryReader { GeometryProxy in
-            let IconWidth = GeometryProxy.size.width/7
-            let IconHeight = GeometryProxy.size.height/12
-            VStack {
-                Spacer()
-                ZStack{
-                    HStack{
-                    }
-                    .edgesIgnoringSafeArea(.all)
-                    .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height/10)
-                    HStack(spacing: GeometryProxy.size.width/9){
-                        TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, viewRouter: viewRouter, assignedPage: .StarBox)
-                        
-                        ZStack{
-                            Image("Search")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
-                                .foregroundColor(.orange)
-                                .shadow(radius: 10,y: 5)
+        
+        if viewRouter.isShow {      //如果需要展示TabBar
+            GeometryReader { GeometryProxy in
+                let IconWidth = GeometryProxy.size.width/7
+                let IconHeight = GeometryProxy.size.height/12
+                VStack {
+                    Spacer()
+                    ZStack{
+                        HStack{
                         }
-                        .onTapGesture {
-                            viewRouter.currentPage = Page.Search
+                        .edgesIgnoringSafeArea(.all)
+                        .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height/10)
+                        HStack(spacing: GeometryProxy.size.width/9){
+                            TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, viewRouter: viewRouter, assignedPage: .StarBox)
+                            
+                            ZStack{
+                                Image("Search")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
+                                    .foregroundColor(.orange)
+                                    .shadow(radius: 10,y: 5)
+                            }
+                            .onTapGesture {
+                                viewRouter.currentPage = Page.Search
+                            }
+                            TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, viewRouter: viewRouter, assignedPage: .NotDone)
                         }
-                        TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, viewRouter: viewRouter, assignedPage: .NotDone)
                     }
                 }
             }

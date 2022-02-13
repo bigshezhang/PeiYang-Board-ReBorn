@@ -29,6 +29,9 @@ struct AllNotisView: View {
                         MainPageHeader()
                             .onTapGesture {
                                 userData.UserAccountClean()
+                                withAnimation(.spring()){
+                                    viewRouter.currentPage = .Login
+                                }
                             }
                             .padding(.top)
                         

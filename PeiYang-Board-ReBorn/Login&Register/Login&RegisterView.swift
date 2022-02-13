@@ -13,8 +13,8 @@ import CoreMedia
 struct LoginAndRegisterView: View {
     @StateObject var viewRouter : ViewRouter
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State private var email: String = "123456@qq.com"
+    @State private var password: String = "123456"
     @State private var confirmpassword: String = ""
     @State private var signswitch: String = "已注册？"
 
@@ -36,15 +36,8 @@ struct LoginAndRegisterView: View {
     var body: some View {
         if(!isSigned){
             SignCard()
-
-                .opacity(isSigned ? 0 : 1)
-                .animation(Animation.easeInOut(duration: 0.7), value: isSigned)
         } else {
             MainView(viewRouter: viewRouter)
-                .opacity(isSigned ? 1 : 0)
-                .animation(Animation.easeInOut(duration: 0.7), value: isSigned)
-
-            
         }
     }
     
@@ -63,13 +56,13 @@ struct LoginAndRegisterView: View {
                                     .offset(x: 45, y: 12)
                         )
                         .onTapGesture {
-                            if(signpage == .register){
-                                signpage = .login
+                            if(viewRouter.currentPage == .Register){
+//                                signpage = .login
                                 viewRouter.currentPage = .Login
                                 
                                 signswitch = "未注册？"
                             } else {
-                                signpage = .register
+//                                signpage = .register
                                 viewRouter.currentPage = .Register
                                 
                                 signswitch = "已注册？"
@@ -147,7 +140,7 @@ struct LoginAndRegisterView: View {
                     .frame(height: 3)
                     .padding(.top, -8)
                     
-                    if(signpage == .register) {     //如果是注册，则多出一个输入行
+                    if(viewRouter.currentPage == .Register) {     //如果是注册，则多出一个输入行
                         Group {
                             HStack{
                                 Image("Login_Lock")
@@ -181,7 +174,7 @@ struct LoginAndRegisterView: View {
                         }
                     }
                     
-                    if(signpage == .login){     //如果是登陆界面，多出一个 找回密码
+                    if(viewRouter.currentPage == .Login){     //如果是登陆界面，多出一个 找回密码
                         HStack{
                             Spacer()
                             Button(action: {
@@ -202,7 +195,7 @@ struct LoginAndRegisterView: View {
                     Spacer()
                     Button(action: {
                         submit()
-                        if(signpage == .register){      //点击后再开始验证监听
+                        if(viewRouter.currentPage == .Register){      //点击后再开始验证监听
                             Auth.auth().addStateDidChangeListener { (auth, user) in
                                 if user != nil {
                                     showProfileView = true
@@ -236,13 +229,13 @@ struct LoginAndRegisterView: View {
             .fullScreenCover(isPresented: $showProfileView) {
                 ProfileOnRegister()
             }
-            .animation(Animation.spring(),value: signpage)
+            .animation(Animation.spring(),value: viewRouter.currentPage)
         }
     }
     
     
     func submit() {
-        if(signpage == .register && password == confirmpassword){
+        if(viewRouter.currentPage == .Register && password == confirmpassword){
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 guard error == nil else {
                     alertTitle = "Uh-Oh!"
@@ -256,11 +249,11 @@ struct LoginAndRegisterView: View {
 //                print("User is signed up")
             }
             
-        } else if(signpage == .register && password != confirmpassword){
+        } else if(viewRouter.currentPage == .Register && password != confirmpassword){
             alertTitle = "Uh-Oh"
             alertMessage = "两次密码不同！"
             showAlertToggle.toggle()
-        } else if(signpage == .login) {
+        } else if(viewRouter.currentPage == .Login) {
             Auth.auth().signIn(withEmail: email, password: password) { result, error in
                 guard error == nil else{
                     alertTitle = "Uh-Oh!"

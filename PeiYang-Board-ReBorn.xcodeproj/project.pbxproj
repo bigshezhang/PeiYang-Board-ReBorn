@@ -127,7 +127,6 @@
 		E08246C527B6166B00A5A838 /* MainPages */ = {
 			isa = PBXGroup;
 			children = (
-				E08246DF27B6177400A5A838 /* Model */,
 				E08246E027B6177400A5A838 /* View */,
 				E08246D727B6177400A5A838 /* Controller */,
 			);
@@ -155,13 +154,6 @@
 				E082471627B61C4B00A5A838 /* StarBoxView.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		E08246DF27B6177400A5A838 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E08246E027B6177400A5A838 /* View */ = {
