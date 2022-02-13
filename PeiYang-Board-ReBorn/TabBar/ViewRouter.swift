@@ -8,7 +8,7 @@
 import SwiftUI
 
 class ViewRouter: ObservableObject {
-    @Published var currentPage: Page = .AllNotis
+    @Published var currentPage: Page = userData.isNeedLogin ? .Register : .AllNotis
     @Published var isShow: Bool = true
 }
 
@@ -18,6 +18,8 @@ enum Page{
     case NotDone
     case StarBox
     case Search
+    case Login
+    case Register
 }
 
 //struct ViewRouter_Previews: PreviewProvider {

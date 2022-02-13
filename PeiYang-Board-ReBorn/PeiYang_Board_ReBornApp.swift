@@ -11,16 +11,20 @@ import FirebaseAuth
 
 @main
 struct PeiYang_Board_ReBornApp: App {
-    let persistenceController = PersistenceController.shared
-
     init(){
         FirebaseApp.configure() //Firebase初始化
     }
     
+    let persistenceController = PersistenceController.shared
+    
+    @StateObject var viewRouter = ViewRouter()
+    
+
+    
     
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            SplashView(viewRouter: viewRouter)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

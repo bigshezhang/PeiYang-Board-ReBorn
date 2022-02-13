@@ -111,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				E08246C527B6166B00A5A838 /* MainPages */,
-				E08246C427B6165600A5A838 /* TabBar */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -210,6 +209,7 @@
 			children = (
 				E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */,
 				E0AB5EB027B60E9A003D8C0F /* SplashView.swift */,
+				E08246C427B6165600A5A838 /* TabBar */,
 				E0A8BD5A27B6B86C009E9806 /* Login&Register */,
 				E08246C027B6142F00A5A838 /* Storage */,
 				E08246C327B615F000A5A838 /* HomeView */,

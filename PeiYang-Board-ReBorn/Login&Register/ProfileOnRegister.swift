@@ -13,6 +13,7 @@ struct ProfileOnRegister: View {
     @State private var major = ""
     @State private var grade = ""
     @State private var inclass = ""
+
     
     enum Role {
         case user
