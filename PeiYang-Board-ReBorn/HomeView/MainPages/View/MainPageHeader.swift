@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainPageHeader: View {
+    @StateObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             HStack {
@@ -49,18 +50,25 @@ struct MainPageHeader: View {
             }
             HStack{               //头像
                 Spacer()
-                ZStack{
-                    Text("@")
-                        .font(.system(size: ByWidth(Scale: 30), weight: .light))
-                        .foregroundColor(Color("Main_Header_Font"))
-                    
-                    Image("user")
-                        .resizable()
-                        .opacity(0.8)
-                        .frame(width: ByWidth(Scale: 20), height: ByWidth(Scale: 20))
-                        .clipShape(Circle())
-                        .offset(y: ByHeight(Scale: 1))
-                        .shadow(color: Color.gray, radius: 10, x: 5, y: 5)
+                NavigationLink {
+                    SettingView(viewRouter: viewRouter)
+                        .onAppear {
+                            viewRouter.isShow = false
+                        }
+                } label: {
+                    ZStack{
+                        Text("@")
+                            .font(.system(size: ByWidth(Scale: 30), weight: .light))
+                            .foregroundColor(Color("Main_Header_Font"))
+                        
+                        Image("user")
+                            .resizable()
+                            .opacity(0.8)
+                            .frame(width: ByWidth(Scale: 20), height: ByWidth(Scale: 20))
+                            .clipShape(Circle())
+                            .offset(y: ByHeight(Scale: 1))
+                            .shadow(color: Color.gray, radius: 10, x: 5, y: 5)
+                    }
                 }
             }
             .padding(.trailing, ByWidth(Scale: 5))
@@ -72,6 +80,6 @@ struct MainPageHeader: View {
 
 struct MainPageHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageHeader()
+        MainPageHeader(viewRouter: ViewRouter())
     }
 }

@@ -15,15 +15,9 @@ struct ProfileOnRegister: View {
     @State private var major = ""
     @State private var grade = ""
     @State private var inclass = ""
+    @State private var isAdmin = false
 
     @Binding var showProfileView: Bool
-    enum Role {
-        case user
-        case admin
-    }
-    
-    @State private var role = Role.user
-    
     var body: some View {
         ZStack{
             VStack{
@@ -76,9 +70,9 @@ struct ProfileOnRegister: View {
                 HStack(spacing: 46){
                     Capsule()
                         .onTapGesture {
-                            role = .user
+                            isAdmin.toggle()
                         }
-                        .foregroundColor(role == .user ? Color("ProfileOnRegisterRoleSelected") : Color("ProfileOnRegisterRoleUnselected"))
+                        .foregroundColor(!isAdmin ? Color("ProfileOnRegisterRoleSelected") : Color("ProfileOnRegisterRoleUnselected"))
                         .frame(width: 121, height: 42)
                         .overlay(
                             Text("用户")
@@ -86,16 +80,16 @@ struct ProfileOnRegister: View {
                         )
                     Capsule()
                         .onTapGesture {
-                            role = .admin
+                            isAdmin.toggle()
                         }
-                        .foregroundColor(role == .admin ? Color("ProfileOnRegisterRoleSelected") : Color("ProfileOnRegisterRoleUnselected"))
+                        .foregroundColor(isAdmin ? Color("ProfileOnRegisterRoleSelected") : Color("ProfileOnRegisterRoleUnselected"))
                         .frame(width: 121, height: 42)
                         .overlay(
                             Text("管理员")
                                 .font(.custom(FZMS, size: 20))
                         )
                 }
-                .animation(Animation.spring(), value: role)
+                .animation(Animation.spring(), value: isAdmin)
                 .padding(.top, 30)
                 
                 Button {
@@ -119,7 +113,12 @@ struct ProfileOnRegister: View {
     }
     
     func submit() -> Void{
-        
+        userData.nickname = nickname
+        userData.school = school
+        userData.grade = grade
+        userData.inclass = inclass
+        userData.major = major
+        userData.isAdmin = isAdmin
     }
     
 }

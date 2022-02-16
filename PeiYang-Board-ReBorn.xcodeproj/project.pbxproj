@@ -46,6 +46,8 @@
 		E0AC5E7427B9411A0083BAE3 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E6E27B9411A0083BAE3 /* Chart.swift */; };
 		E0AC5E7527B9411A0083BAE3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E7027B9411A0083BAE3 /* SearchView.swift */; };
 		E0AC5E7627B9411A0083BAE3 /* questionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E7127B9411A0083BAE3 /* questionImage.swift */; };
+		E0AC5E7B27BC9AAE0083BAE3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E7A27BC9AAE0083BAE3 /* SettingView.swift */; };
+		E0AC5E7D27BCAD690083BAE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E7C27BCAD690083BAE3 /* ProfileView.swift */; };
 		E0BD4F7227B6933400E7D2FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0BD4F7127B6933400E7D2FF /* GoogleService-Info.plist */; };
 		E0BD4F7527B693BC00E7D2FF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD4F7427B693BC00E7D2FF /* FirebaseAuth */; };
 		E0BD4F7827B698AB00E7D2FF /* Login&RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD4F7727B698AB00E7D2FF /* Login&RegisterView.swift */; };
@@ -92,6 +94,8 @@
 		E0AC5E6E27B9411A0083BAE3 /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		E0AC5E7027B9411A0083BAE3 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E0AC5E7127B9411A0083BAE3 /* questionImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = questionImage.swift; sourceTree = "<group>"; };
+		E0AC5E7A27BC9AAE0083BAE3 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		E0AC5E7C27BCAD690083BAE3 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E0BD4F7127B6933400E7D2FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0BD4F7727B698AB00E7D2FF /* Login&RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Login&RegisterView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -211,6 +215,7 @@
 			children = (
 				E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */,
 				E0AB5EB027B60E9A003D8C0F /* SplashView.swift */,
+				E0AC5E7927BC9A710083BAE3 /* Profile */,
 				E0AC5E6B27B9411A0083BAE3 /* Publish */,
 				E0AC5E6F27B9411A0083BAE3 /* Search */,
 				E08246C427B6165600A5A838 /* TabBar */,
@@ -266,6 +271,15 @@
 				E0AC5E7127B9411A0083BAE3 /* questionImage.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		E0AC5E7927BC9A710083BAE3 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				E0AC5E7A27BC9AAE0083BAE3 /* SettingView.swift */,
+				E0AC5E7C27BCAD690083BAE3 /* ProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,12 +377,14 @@
 				E082470027B6185A00A5A838 /* NotisStorage.swift in Sources */,
 				E0AC5E7227B9411A0083BAE3 /* PubSuccess.swift in Sources */,
 				E082471E27B61C4C00A5A838 /* NotDoneView.swift in Sources */,
+				E0AC5E7D27BCAD690083BAE3 /* ProfileView.swift in Sources */,
 				E08246F627B6177400A5A838 /* MainPageNaviList.swift in Sources */,
 				E0AB5EA227B60CFD003D8C0F /* Persistence.swift in Sources */,
 				E082472027B61C4C00A5A838 /* AllNotisView.swift in Sources */,
 				E0AB5EAF27B60D2B003D8C0F /* ImagePicker.swift in Sources */,
 				E082471F27B61C4C00A5A838 /* HomeView.swift in Sources */,
 				E08246CC27B6168600A5A838 /* Font.swift in Sources */,
+				E0AC5E7B27BC9AAE0083BAE3 /* SettingView.swift in Sources */,
 				E08246F827B6177400A5A838 /* MainWeekIndicator.swift in Sources */,
 				E0AB5E9B27B60CFB003D8C0F /* ContentView.swift in Sources */,
 				E08246F227B6177400A5A838 /* MainPageDetail.swift in Sources */,

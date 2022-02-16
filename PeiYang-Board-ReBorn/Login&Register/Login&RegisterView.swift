@@ -220,9 +220,6 @@ struct LoginAndRegisterView: View {
                     Auth.auth().addStateDidChangeListener { (auth, user) in
                         if (isSigned == true) {
                             showProfileView = true
-                            print(user!)
-                            print(auth)
-                            print("ShowProFile")
                         }
                     }
 
@@ -294,8 +291,10 @@ struct LoginAndRegisterView: View {
         withAnimation(.easeInOut(duration: 0.7)){
             isSigned = true
             if(viewRouter.currentPage == .Login){
+                viewRouter.isShow = true
                 viewRouter.currentPage = .AllNotis
             }
+            viewRouter.isShow = true
             print("End_sign_>")
             print(isSigned)
         }

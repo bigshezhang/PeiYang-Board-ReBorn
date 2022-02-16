@@ -26,14 +26,8 @@ struct AllNotisView: View {
                 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
-                        MainPageHeader()
-                            .onTapGesture {
-                                userData.UserAccountClean()
-                                withAnimation(.spring()){
-                                    LoginAndRegisterView(viewRouter: viewRouter).showProfileView = false
-                                    viewRouter.currentPage = .Register
-                                }
-                            }
+                        MainPageHeader(viewRouter: viewRouter)
+
                             .padding(.top)
                         
                         MainWeekIndicator()

@@ -23,7 +23,7 @@ struct NotDoneView: View {
                 }
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
-                        MainPageHeader()
+                        MainPageHeader(viewRouter: viewRouter)
                             .onTapGesture {
                                 viewRouter.isShow.toggle()
                             }
