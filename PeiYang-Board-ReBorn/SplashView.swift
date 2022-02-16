@@ -10,6 +10,7 @@
 import SwiftUI
 import UIKit
 import Combine
+import FirebaseAuth
 
 struct SplashView: View {
     @StateObject var viewRouter: ViewRouter
@@ -37,6 +38,7 @@ struct SplashView: View {
                     .padding(.bottom,ByHeight(Scale: 10))
                     .opacity(isSplashLoaded ? 0 : 1)
                     .animation(Animation.default.delay(0.3).speed(0.25),value: isSplashLoaded)
+
                     
                     VStack{
                         Spacer()

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ProfileOnRegister: View {
+    @StateObject var viewRouter: ViewRouter
+    
     @State private var nickname = ""
     @State private var school = ""
     @State private var major = ""
     @State private var grade = ""
     @State private var inclass = ""
 
-    
+    @Binding var showProfileView: Bool
     enum Role {
         case user
         case admin
@@ -98,6 +100,8 @@ struct ProfileOnRegister: View {
                 
                 Button {
                     submit()
+                    showProfileView = false
+                    viewRouter.currentPage = .AllNotis
                 } label: {
                     Capsule()
                         .overlay(Text("提交")
@@ -143,6 +147,6 @@ struct ProfileOnRegister: View {
 
 struct ProfileOnRegister_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileOnRegister()
+        ProfileOnRegister(viewRouter: ViewRouter(), showProfileView: .constant(true))
     }
 }

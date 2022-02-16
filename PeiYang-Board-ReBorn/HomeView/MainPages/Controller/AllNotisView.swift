@@ -30,7 +30,8 @@ struct AllNotisView: View {
                             .onTapGesture {
                                 userData.UserAccountClean()
                                 withAnimation(.spring()){
-                                    viewRouter.currentPage = .Login
+                                    LoginAndRegisterView(viewRouter: viewRouter).showProfileView = false
+                                    viewRouter.currentPage = .Register
                                 }
                             }
                             .padding(.top)

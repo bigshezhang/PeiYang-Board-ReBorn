@@ -8,18 +8,17 @@
 import SwiftUI
 import FirebaseAuth
 import AuthenticationServices
-import CoreMedia
 
 struct LoginAndRegisterView: View {
     @StateObject var viewRouter : ViewRouter
     
     @State private var email: String = "123456@qq.com"
     @State private var password: String = "123456"
-    @State private var confirmpassword: String = ""
+    @State private var confirmpassword: String = "123456"
     @State private var signswitch: String = "已注册？"
 
 
-    @State private var showProfileView = false
+    @State var showProfileView = false
     @State private var isSigned = false //是否登陆，注册成功
     
     @State private var showAlertToggle = false
@@ -34,10 +33,10 @@ struct LoginAndRegisterView: View {
     
     
     var body: some View {
-        if(!isSigned){
-            SignCard()
-        } else {
+        if(isSigned && viewRouter.currentPage == .AllNotis){    //能跳转时
             MainView(viewRouter: viewRouter)
+        } else {
+            SignCard()
         }
     }
     
@@ -195,18 +194,9 @@ struct LoginAndRegisterView: View {
                     Spacer()
                     Button(action: {
                         submit()
-                        if(viewRouter.currentPage == .Register){      //点击后再开始验证监听
-                            Auth.auth().addStateDidChangeListener { (auth, user) in
-                                if user != nil {
-                                    showProfileView = true
-                                    print(user!)
-                                    print(auth)
-                                    print("ShowProFile")
-                                }
-                            }
-
-                        }
-
+                        print("Submittedd")
+                        print(viewRouter.currentPage)
+                        print(isSigned)
                     }, label: {
                         Image("Submit_Login")
                             .overlay(
@@ -224,10 +214,22 @@ struct LoginAndRegisterView: View {
 
                 Spacer()
             }
-//            .onAppear() {
-//            }
+            .onAppear() {
+                if(viewRouter.currentPage == .Register){      //点击后再开始验证监听
+                    print("OnListening")
+                    Auth.auth().addStateDidChangeListener { (auth, user) in
+                        if (isSigned == true) {
+                            showProfileView = true
+                            print(user!)
+                            print(auth)
+                            print("ShowProFile")
+                        }
+                    }
+
+                }
+            }
             .fullScreenCover(isPresented: $showProfileView) {
-                ProfileOnRegister()
+                ProfileOnRegister(viewRouter: viewRouter, showProfileView: $showProfileView)
             }
             .animation(Animation.spring(),value: viewRouter.currentPage)
         }
@@ -244,6 +246,7 @@ struct LoginAndRegisterView: View {
 //                    print(error!.localizedDescription)
                     return
                 }
+                print("register success")
                 userAccountStore()
                 end_sign()
 //                print("User is signed up")
@@ -289,8 +292,12 @@ struct LoginAndRegisterView: View {
     
     func end_sign() {
         withAnimation(.easeInOut(duration: 0.7)){
-            viewRouter.currentPage = .AllNotis
-               isSigned = true
+            isSigned = true
+            if(viewRouter.currentPage == .Login){
+                viewRouter.currentPage = .AllNotis
+            }
+            print("End_sign_>")
+            print(isSigned)
         }
     }
 }
