@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProfileView: View {
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var userData: UserData
     @State private var nickname = ""
     @State private var school = ""
     @State private var major = ""

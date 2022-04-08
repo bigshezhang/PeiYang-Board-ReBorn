@@ -14,6 +14,7 @@ import FirebaseAuth
 
 struct SplashView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var userData: UserData
     
     @State private var isSplashLoaded = false        //Whether Splashing Loaded
     @State private var isSplashing: Bool = true

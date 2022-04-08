@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct UserData {
+final class UserData: ObservableObject {
     @AppStorage("isNeedLogin") var isNeedLogin: Bool = true
     @AppStorage("email") var email: String = "007"
     @AppStorage("password") var password: String = "1234"
@@ -39,5 +39,3 @@ struct UserData {
         checkupdate = true
     }
 }
-
-var userData = UserData()

@@ -6,10 +6,16 @@
 //
 
 import SwiftUI
-
 class ViewRouter: ObservableObject {
-    @Published var currentPage: Page = userData.isNeedLogin ? .Register : .AllNotis
+    @EnvironmentObject var userData: UserData
+//    @AppStorage("isNeedLogin") var isNeedLogin = true
+//    @Published var currentPage: Page = userData.isNeedLogin ? .Register : .AllNotis
     @Published var isShow: Bool = true
+    @Published var currentPage: Page = .AllNotis
+    
+    func start() -> Void{
+        currentPage = userData.isNeedLogin ? .Login : .AllNotis
+    }
 }
 
 enum Page{

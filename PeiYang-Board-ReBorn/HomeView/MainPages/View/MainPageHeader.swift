@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainPageHeader: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var userData: UserData
     var body: some View {
         ZStack{
             HStack {

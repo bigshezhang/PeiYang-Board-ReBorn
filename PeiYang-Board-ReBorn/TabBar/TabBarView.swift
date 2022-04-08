@@ -10,7 +10,7 @@ import SwiftUI
 struct TabBarView: View {
 //    
     @EnvironmentObject var viewRouter: ViewRouter
-    @State var isAdmin = userData.isAdmin
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         
@@ -25,7 +25,7 @@ struct TabBarView: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height/10)
 
-                    if !isAdmin {
+                    if !userData.isAdmin {
                         HStack(spacing: GeometryProxy.size.width/6.5){
                             TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
                             
@@ -53,7 +53,7 @@ struct TabBarView: View {
                             Text("233")
                         }
                         .onAppear {
-                            print(userData.isAdmin)
+                            print("tabbar",userData.isAdmin)
                         }
                     }
                 }

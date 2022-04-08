@@ -10,9 +10,10 @@ import FirebaseAuth
 
 struct SettingView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var userData: UserData
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var isAdmin = userData.isAdmin
+//    @State private var isAdmin = userData.isAdmin
     @State private var strRole: String = "007"
     @State private var strIsCheckUpdate = "开"
     
@@ -48,7 +49,7 @@ struct SettingView: View {
                             Text("当前状态：")
                                 .font(.custom(FZMS, size: 30))
                                 .onAppear {
-                                    strRole = isAdmin ? "管理员" : "用户"
+                                    strRole = userData.isAdmin ? "管理员" : "用户"
                                 }
                             Text(strRole)
                                 .font(.custom(FZMS, size: 30))
@@ -60,10 +61,8 @@ struct SettingView: View {
                                 .font(.custom(FZMS, size: 30))
                             Button {
                                 withAnimation {
-                                    userData.isAdmin.toggle()
-                                    isAdmin.toggle()
-                                }
-                                strRole = isAdmin ? "管理员" : "用户"
+                                    UserDefaults.standard.set(!userData.isAdmin,forKey:"isAdmin")                                }
+                                strRole = userData.isAdmin ? "管理员" : "用户"
                             } label: {
                                 Capsule()
                                     .frame(width: 148, height: 58)

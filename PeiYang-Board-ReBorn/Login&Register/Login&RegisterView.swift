@@ -11,6 +11,7 @@ import AuthenticationServices
 
 struct LoginAndRegisterView: View {
     @EnvironmentObject var viewRouter : ViewRouter
+    @EnvironmentObject var userData: UserData
     
     @State private var email: String = "123456@qq.com"
     @State private var password: String = "123456"

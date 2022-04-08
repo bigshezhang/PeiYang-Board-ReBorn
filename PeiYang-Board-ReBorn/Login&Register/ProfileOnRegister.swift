@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProfileOnRegister: View {
     @EnvironmentObject var viewRouter: ViewRouter
-    
+    @EnvironmentObject var userData: UserData
     @State private var nickname = ""
     @State private var school = ""
     @State private var major = ""
