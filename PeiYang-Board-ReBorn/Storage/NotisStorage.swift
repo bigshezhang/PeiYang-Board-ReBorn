@@ -13,7 +13,7 @@ struct Noti: Identifiable, Codable, Equatable{
     var stared: Bool
     var id: Int
     var title: String
-    var main_text: String
+    var main_text: String  //正文
     var publisher: String
     var publish_time: String
     var tags: [String]
@@ -41,7 +41,7 @@ struct Noti: Identifiable, Codable, Equatable{
 }
 
 final class NotiStore: ObservableObject {
-    @Published var Notis: [Noti] = []{
+    @Published var Notis: [Noti] = []{   //消息数组
         didSet{
             if let data = try? JSONEncoder().encode(Notis){
                 UserDefaults.standard.set(data, forKey: "Notis")

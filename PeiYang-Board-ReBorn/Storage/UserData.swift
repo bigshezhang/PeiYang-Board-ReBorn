@@ -24,8 +24,8 @@ struct UserData {
     @AppStorage("checkupdate") var checkupdate = true
     
 
-    
-    
+//    @AppStorage("history") var historySearch: [String] = []
+    static let historySearch = UserDefaults(suiteName: "history")!
     func UserAccountClean(){
         isNeedLogin = true
         email = "007"
@@ -37,7 +37,32 @@ struct UserData {
         inclass = "十班"
         isAdmin = false
         checkupdate = true
+//        historySearch = [""]
+    }
+    
+    
+}
+
+// 解决AppStorage无法解释数组的问题
+extension Array: RawRepresentable where Element: Codable {
+    public init?(rawValue: String) {
+        guard let data = rawValue.data(using: .utf8),
+              let result = try? JSONDecoder().decode([Element].self, from: data)
+        else {
+            return nil
+        }
+        self = result
+    }
+    
+    public var rawValue: String {
+        guard let data = try? JSONEncoder().encode(self),
+              let result = String(data: data, encoding: .utf8)
+        else {
+            return "[]"
+        }
+        return result
     }
 }
+
 
 var userData = UserData()
