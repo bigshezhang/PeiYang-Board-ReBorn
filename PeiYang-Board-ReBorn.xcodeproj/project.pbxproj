@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		27CB9A98895EEA10DF95BEAF /* Pods_PeiYang_Board_ReBorn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */; };
-		E01899EA280074250050B6EA /* NotiCoreDatat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E01899E8280074250050B6EA /* NotiCoreDatat.xcdatamodeld */; };
 		E02430F727B6C939004856EF /* ProfileOnRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02430F627B6C939004856EF /* ProfileOnRegister.swift */; };
 		E08246C227B6148800A5A838 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C127B6148800A5A838 /* UserData.swift */; };
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
@@ -58,7 +57,6 @@
 		0CDBFC1FAF723366A82A4E64 /* Pods-PeiYang-Board-ReBorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.release.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.release.xcconfig"; sourceTree = "<group>"; };
 		474D8B99F3BD676CB39B71D5 /* Pods-PeiYang-Board-ReBorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.debug.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.debug.xcconfig"; sourceTree = "<group>"; };
 		BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeiYang_Board_ReBorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E01899E9280074250050B6EA /* NotiCoreDatat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotiCoreDatat.xcdatamodel; sourceTree = "<group>"; };
 		E02430F627B6C939004856EF /* ProfileOnRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnRegister.swift; sourceTree = "<group>"; };
 		E08246C127B6148800A5A838 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
@@ -137,6 +135,9 @@
 		E0189A0C280077180050B6EA /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				E08246E127B6177400A5A838 /* MainPageDetail.swift */,
+				E08246E527B6177400A5A838 /* MainPageNaviList.swift */,
+				E08246E627B6177400A5A838 /* MainPageNaviRow.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -202,12 +203,9 @@
 		E08246E027B6177400A5A838 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E08246E127B6177400A5A838 /* MainPageDetail.swift */,
 				E08246E227B6177400A5A838 /* MainPageHeader.swift */,
 				E08246E327B6177400A5A838 /* MainWeekIndicator2.swift */,
 				E08246E427B6177400A5A838 /* Home_components.swift */,
-				E08246E527B6177400A5A838 /* MainPageNaviList.swift */,
-				E08246E627B6177400A5A838 /* MainPageNaviRow.swift */,
 				E08246E727B6177400A5A838 /* MainWeekIndicator.swift */,
 			);
 			path = View;
@@ -262,7 +260,6 @@
 				E0AB5E9A27B60CFB003D8C0F /* ContentView.swift */,
 				E0BD4F7127B6933400E7D2FF /* GoogleService-Info.plist */,
 				E0AB5E9E27B60CFD003D8C0F /* Preview Content */,
-				E01899E8280074250050B6EA /* NotiCoreDatat.xcdatamodeld */,
 			);
 			path = "PeiYang-Board-ReBorn";
 			sourceTree = "<group>";
@@ -462,7 +459,6 @@
 				E0AC5E7B27BC9AAE0083BAE3 /* SettingView.swift in Sources */,
 				E08246F827B6177400A5A838 /* MainWeekIndicator.swift in Sources */,
 				E0AB5E9B27B60CFB003D8C0F /* ContentView.swift in Sources */,
-				E01899EA280074250050B6EA /* NotiCoreDatat.xcdatamodeld in Sources */,
 				E08246F227B6177400A5A838 /* MainPageDetail.swift in Sources */,
 				E08246D227B6173400A5A838 /* ViewRouter.swift in Sources */,
 				E0AB5E9927B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift in Sources */,
@@ -685,16 +681,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E01899E8280074250050B6EA /* NotiCoreDatat.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E01899E9280074250050B6EA /* NotiCoreDatat.xcdatamodel */,
-			);
-			currentVersion = E01899E9280074250050B6EA /* NotiCoreDatat.xcdatamodel */;
-			path = NotiCoreDatat.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		E0AB5EA327B60CFD003D8C0F /* PeiYang_Board_ReBorn.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
