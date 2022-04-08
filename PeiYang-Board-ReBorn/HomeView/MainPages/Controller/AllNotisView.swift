@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AllNotisView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var NotiStore : NotiStore
     var body: some View {
         NavigationView {
             ZStack{
@@ -34,8 +35,8 @@ struct AllNotisView: View {
                             .padding(.top,ByHeight(Scale: -5))
                             .padding(.bottom,ByHeight(Scale: 0.1))
 
-                        ForEach(notis.indices,id: \.self){ i in
-                            MainPageNaviRow(noti: notis[i])
+                        ForEach(NotiStore.Notis.indices, id: \.self){ i in
+                            MainPageNaviRow(number: i)
                         }
                         Spacer()
                             .padding(.bottom,ByHeight(Scale: 20))
@@ -58,5 +59,6 @@ struct AllNotisView_Previews: PreviewProvider {
     static var previews: some View {
         AllNotisView()
             .environmentObject(ViewRouter())
+            .environmentObject(NotiStore())
     }
 }

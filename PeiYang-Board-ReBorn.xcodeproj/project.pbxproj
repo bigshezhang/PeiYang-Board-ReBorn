@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		27CB9A98895EEA10DF95BEAF /* Pods_PeiYang_Board_ReBorn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */; };
+		E0189A0E280084690050B6EA /* NotiAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A0D280084690050B6EA /* NotiAdd.swift */; };
 		E02430F727B6C939004856EF /* ProfileOnRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02430F627B6C939004856EF /* ProfileOnRegister.swift */; };
 		E08246C227B6148800A5A838 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C127B6148800A5A838 /* UserData.swift */; };
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
@@ -57,6 +58,7 @@
 		0CDBFC1FAF723366A82A4E64 /* Pods-PeiYang-Board-ReBorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.release.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.release.xcconfig"; sourceTree = "<group>"; };
 		474D8B99F3BD676CB39B71D5 /* Pods-PeiYang-Board-ReBorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.debug.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.debug.xcconfig"; sourceTree = "<group>"; };
 		BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeiYang_Board_ReBorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0189A0D280084690050B6EA /* NotiAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiAdd.swift; sourceTree = "<group>"; };
 		E02430F627B6C939004856EF /* ProfileOnRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnRegister.swift; sourceTree = "<group>"; };
 		E08246C127B6148800A5A838 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				E08246E127B6177400A5A838 /* MainPageDetail.swift */,
 				E08246E527B6177400A5A838 /* MainPageNaviList.swift */,
 				E08246E627B6177400A5A838 /* MainPageNaviRow.swift */,
+				E0189A0D280084690050B6EA /* NotiAdd.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				E082472027B61C4C00A5A838 /* AllNotisView.swift in Sources */,
 				E0AB5EAF27B60D2B003D8C0F /* ImagePicker.swift in Sources */,
 				E082471F27B61C4C00A5A838 /* HomeView.swift in Sources */,
+				E0189A0E280084690050B6EA /* NotiAdd.swift in Sources */,
 				E08246CC27B6168600A5A838 /* Font.swift in Sources */,
 				E0AC5E7B27BC9AAE0083BAE3 /* SettingView.swift in Sources */,
 				E08246F827B6177400A5A838 /* MainWeekIndicator.swift in Sources */,

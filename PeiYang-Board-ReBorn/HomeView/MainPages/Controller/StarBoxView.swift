@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StarBoxView: View {
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var NotiStore: NotiStore
     var body: some View {
         NavigationView {
             ZStack{
@@ -33,9 +34,9 @@ struct StarBoxView: View {
 //                            .padding(.top,ByHeight(Scale: -5))
 //                            .padding(.bottom,ByHeight(Scale: 0.1))
 
-                        ForEach(notis.indices,id: \.self){ i in
-                            if(notis[i].stared == true){
-                                MainPageNaviRow(noti: notis[i])
+                        ForEach(NotiStore.Notis.indices,id: \.self){ i in
+                            if(NotiStore.Notis[i].stared == true){
+                                MainPageNaviRow(number: i)
                             }
                         }
 

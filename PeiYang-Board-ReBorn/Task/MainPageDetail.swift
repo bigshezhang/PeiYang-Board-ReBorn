@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct MainPageDetail: View {
-    @State var noti = Noti()
+//    @State var noti = Noti()
+    var number: Int
+    @State var isToCheck = false
+    @State var isToUnStar = false
     
-    @State var checked: Bool
-    @State var stared: Bool
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var NotiStore: NotiStore
     
 //    init(){
-//        checked = noti.checked
-//        stared = noti.stared
+//        checked = NotiStore.Notis[number].checked
+//        stared = NotiStore.Notis[number].stared
 //    }
     var body: some View {
         
@@ -47,13 +49,20 @@ struct MainPageDetail: View {
                             .padding(.top,ByHeight(Scale: -0.5))
                             .padding(.leading,ByWidth(Scale: 0.8))
                             .onTapGesture {
-                                presentationMode.wrappedValue.dismiss()
                                 viewRouter.isShow = true
+                                if(isToCheck) {
+                                    NotiStore.Notis[number].checked = true
+                                }
+                                if(isToUnStar) {
+                                    NotiStore.Notis[number].stared = false
+                                }
+                                presentationMode.wrappedValue.dismiss()
+
                             }
                         //返回按钮不应该放在这里
                         Spacer()
-                        ForEach(noti.tags.indices, id: \.self){ i in
-                            Text("#\(noti.tags[i])")
+                        ForEach(NotiStore.Notis[number].tags.indices, id: \.self){ i in
+                            Text("#\(NotiStore.Notis[number].tags[i])")
                                 .font(.custom(FZMS, size: ByWidth(Scale: 8)))
                                 .foregroundColor(Color("Main_Tag_Font"))
                         }
@@ -76,7 +85,7 @@ struct MainPageDetail: View {
                     HStack{
                         Spacer()
                         
-                        Text("\(noti.publish_time)")
+                        Text("\(NotiStore.Notis[number].publish_time)")
                             .font(.custom(FZMS, size: ByWidth(Scale: 6)))
                     }
                     .frame(width: ByWidth(Scale: 85))
@@ -85,7 +94,7 @@ struct MainPageDetail: View {
     //
     //                }
                     
-                    Text("        \(noti.main_text)")
+                    Text("        \(NotiStore.Notis[number].main_text)")
                         .font(.system(size: ByHeight(Scale: 2.5)))
                         .lineSpacing(ByHeight(Scale: 0.8))
                         .frame(width: ByWidth(Scale: 80), alignment: .top)
@@ -118,21 +127,28 @@ struct MainPageDetail: View {
                 Spacer()
                 HStack{
                     Button(action: {
-                        checked.toggle()
-                        noti.checked = checked
+                        if(NotiStore.Notis[number].checked){
+                            NotiStore.Notis[number].checked.toggle()
+                        } else {
+                            isToCheck = true
+                        }
                     }){
                         Image(systemName: "checkmark.circle")
                             .scaleEffect(3)
-                            .foregroundColor(checked ? Color.orange : Color.white)
+                            .foregroundColor((NotiStore.Notis[number].checked||isToCheck) ? Color.orange : Color.white)
                     }
                     Spacer()
                     Button(action: {
-                        stared.toggle()
-                        noti.stared = stared
+//                        stared.toggle()
+                        if(!NotiStore.Notis[number].stared){
+                            NotiStore.Notis[number].stared.toggle()
+                        } else {
+                            isToUnStar = true
+                        }
                     }){
                         Image(systemName: "star")
                             .scaleEffect(2.8)
-                            .foregroundColor(stared ? Color.yellow : Color.white)
+                            .foregroundColor((!NotiStore.Notis[number].stared||isToUnStar) ? Color.white : Color.yellow)
                     }
                 }
                 .padding(.bottom,ByHeight(Scale: 5))
@@ -145,7 +161,8 @@ struct MainPageDetail: View {
 
 struct MainPageDetail_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageDetail(noti: notis[0],checked: notis[0].checked,stared: notis[0].stared)
+        MainPageDetail(number: 1)
             .environmentObject(ViewRouter())
+            .environmentObject(NotiStore())
     }
 }

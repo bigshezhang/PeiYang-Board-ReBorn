@@ -26,6 +26,7 @@ struct PeiYang_Board_ReBornApp: App {
         WindowGroup {
             SplashView()
                 .environmentObject(ViewRouter())
+                .environmentObject(NotiStore())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

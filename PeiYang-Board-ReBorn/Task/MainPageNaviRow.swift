@@ -10,8 +10,12 @@ import SwiftUI
 struct MainPageNaviRow: View {
     @State var isActive = false
     @EnvironmentObject var viewRouter: ViewRouter
+    @EnvironmentObject var NotiStore: NotiStore
     
-    var noti = Noti()
+    var number: Int
+    
+    
+//    var noti = Noti()
     var body: some View {
         HStack(alignment: .center){
             Image("user")
@@ -24,7 +28,7 @@ struct MainPageNaviRow: View {
                 HStack{ //Tags
                     ScrollView(.horizontal,showsIndicators: false) {
                         HStack {
-                            ForEach(noti.tags,id: \.self){ tag in
+                            ForEach(NotiStore.Notis[number].tags,id: \.self){ tag in
                                 Text("#\(tag)")
                             }
 //                            .padding(.trailing, ByWidth(Scale: -1))
@@ -38,7 +42,7 @@ struct MainPageNaviRow: View {
                 .foregroundColor(Color("Main_Tag_Font"))
                 
                 HStack(alignment: .center){ //正文预览 不是title
-                    Text(noti.main_text)
+                    Text(NotiStore.Notis[number].main_text)
                         .lineLimit(2)
                         .lineSpacing(ByHeight(Scale: 0.2))
                 }
@@ -50,7 +54,7 @@ struct MainPageNaviRow: View {
             .frame(width: ByWidth(Scale: 50), height: ByHeight(Scale: 8), alignment: .topLeading)
             .padding(.leading, ByWidth(Scale: 0.9))
             
-            Text(noti.publish_time)
+            Text(NotiStore.Notis[number].publish_time)
 //                .padding(.bottom,ByHeight(Scale: 4.7))
                 .foregroundColor(Color.gray)
                 .font(.custom(FZMS,size: ByWidth(Scale: 4)))
@@ -60,7 +64,7 @@ struct MainPageNaviRow: View {
             
             NavigationLink(
             
-                destination: MainPageDetail(noti: self.noti,checked: self.noti.checked,stared: self.noti.stared),
+                destination: MainPageDetail(number: number),
                 isActive: $isActive,
                 label: {
                     EmptyView()
@@ -79,7 +83,7 @@ struct MainPageNaviRow: View {
 
 struct MainPageNaviRow_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageNaviRow(noti: notis[1])
+        MainPageNaviRow(number: 1)
             .environmentObject(ViewRouter())
     }
 

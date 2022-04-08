@@ -10,7 +10,7 @@ import SwiftUI
 struct MainView: View {
 
     @EnvironmentObject var viewRouter : ViewRouter
-    
+    @EnvironmentObject var NotiStore : NotiStore
     
     var body: some View {
         ZStack{
@@ -23,7 +23,8 @@ struct MainView: View {
                 StarBoxView()
             case .Search:
 //                SearchView()
-                AllNotisView()
+//                AllNotisView()
+                NotiAdd()
             case .Done:
                 DoneView()
             case .Login:
