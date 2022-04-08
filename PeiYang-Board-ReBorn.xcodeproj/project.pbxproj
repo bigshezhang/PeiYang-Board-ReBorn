@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27CB9A98895EEA10DF95BEAF /* Pods_PeiYang_Board_ReBorn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */; };
 		E02430F727B6C939004856EF /* ProfileOnRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02430F627B6C939004856EF /* ProfileOnRegister.swift */; };
 		E08246C227B6148800A5A838 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C127B6148800A5A838 /* UserData.swift */; };
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
@@ -49,11 +50,13 @@
 		E0AC5E7B27BC9AAE0083BAE3 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E7A27BC9AAE0083BAE3 /* SettingView.swift */; };
 		E0AC5E7D27BCAD690083BAE3 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AC5E7C27BCAD690083BAE3 /* ProfileView.swift */; };
 		E0BD4F7227B6933400E7D2FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0BD4F7127B6933400E7D2FF /* GoogleService-Info.plist */; };
-		E0BD4F7527B693BC00E7D2FF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E0BD4F7427B693BC00E7D2FF /* FirebaseAuth */; };
 		E0BD4F7827B698AB00E7D2FF /* Login&RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0BD4F7727B698AB00E7D2FF /* Login&RegisterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CDBFC1FAF723366A82A4E64 /* Pods-PeiYang-Board-ReBorn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.release.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.release.xcconfig"; sourceTree = "<group>"; };
+		474D8B99F3BD676CB39B71D5 /* Pods-PeiYang-Board-ReBorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.debug.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.debug.xcconfig"; sourceTree = "<group>"; };
+		BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeiYang_Board_ReBorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02430F627B6C939004856EF /* ProfileOnRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnRegister.swift; sourceTree = "<group>"; };
 		E08246C127B6148800A5A838 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
@@ -105,13 +108,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0BD4F7527B693BC00E7D2FF /* FirebaseAuth in Frameworks */,
+				27CB9A98895EEA10DF95BEAF /* Pods_PeiYang_Board_ReBorn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08509731C7207B4BC9F452B5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				474D8B99F3BD676CB39B71D5 /* Pods-PeiYang-Board-ReBorn.debug.xcconfig */,
+				0CDBFC1FAF723366A82A4E64 /* Pods-PeiYang-Board-ReBorn.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DCF0DE1AD9476F9498D7B19D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E08246C027B6142F00A5A838 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +219,8 @@
 			children = (
 				E0AB5E9727B60CFB003D8C0F /* PeiYang-Board-ReBorn */,
 				E0AB5E9627B60CFB003D8C0F /* Products */,
+				08509731C7207B4BC9F452B5 /* Pods */,
+				DCF0DE1AD9476F9498D7B19D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -289,9 +311,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0AB5EA827B60CFD003D8C0F /* Build configuration list for PBXNativeTarget "PeiYang-Board-ReBorn" */;
 			buildPhases = (
+				62F552B6A83ED1F891FE2168 /* [CP] Check Pods Manifest.lock */,
 				E0AB5E9127B60CFB003D8C0F /* Sources */,
 				E0AB5E9227B60CFB003D8C0F /* Frameworks */,
 				E0AB5E9327B60CFB003D8C0F /* Resources */,
+				89580567D49BDD2A2E5A85C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -299,7 +323,6 @@
 			);
 			name = "PeiYang-Board-ReBorn";
 			packageProductDependencies = (
-				E0BD4F7427B693BC00E7D2FF /* FirebaseAuth */,
 			);
 			productName = "PeiYang-Board-ReBorn";
 			productReference = E0AB5E9527B60CFB003D8C0F /* PeiYang-Board-ReBorn.app */;
@@ -330,7 +353,6 @@
 			);
 			mainGroup = E0AB5E8C27B60CFB003D8C0F;
 			packageReferences = (
-				E0BD4F7327B693BC00E7D2FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = E0AB5E9627B60CFB003D8C0F /* Products */;
 			projectDirPath = "";
@@ -355,6 +377,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		62F552B6A83ED1F891FE2168 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PeiYang-Board-ReBorn-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89580567D49BDD2A2E5A85C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E0AB5E9127B60CFB003D8C0F /* Sources */ = {
@@ -523,6 +587,7 @@
 		};
 		E0AB5EA927B60CFD003D8C0F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 474D8B99F3BD676CB39B71D5 /* Pods-PeiYang-Board-ReBorn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -538,7 +603,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -554,6 +619,7 @@
 		};
 		E0AB5EAA27B60CFD003D8C0F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CDBFC1FAF723366A82A4E64 /* Pods-PeiYang-Board-ReBorn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -569,7 +635,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -605,25 +671,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		E0BD4F7327B693BC00E7D2FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		E0BD4F7427B693BC00E7D2FF /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E0BD4F7327B693BC00E7D2FF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E0AB5EA327B60CFD003D8C0F /* PeiYang_Board_ReBorn.xcdatamodeld */ = {

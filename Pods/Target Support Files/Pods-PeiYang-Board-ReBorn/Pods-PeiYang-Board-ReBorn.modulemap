@@ -1,0 +1,6 @@
+framework module Pods_PeiYang_Board_ReBorn {
+  umbrella header "Pods-PeiYang-Board-ReBorn-umbrella.h"
+
+  export *
+  module * { export * }
+}
