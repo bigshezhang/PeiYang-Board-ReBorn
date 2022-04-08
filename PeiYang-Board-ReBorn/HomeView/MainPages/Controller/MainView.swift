@@ -17,6 +17,7 @@ struct MainView: View {
             switch viewRouter.currentPage {
             case .AllNotis:
                 AllNotisView()
+//                PublishView()
             case .NotDone:
                 NotDoneView()
             case .StarBox:
@@ -24,13 +25,16 @@ struct MainView: View {
             case .Search:
 //                SearchView()
 //                AllNotisView()
-                NotiAdd()
+//                NotiAdd()
+                PublishView()
             case .Done:
                 DoneView()
             case .Login:
                 LoginAndRegisterView()
             case .Register:
                 LoginAndRegisterView()
+            case .PublishView:
+                PublishView()
             }
             TabBarView()
                 .animation(Animation.default,value: viewRouter.isShow)

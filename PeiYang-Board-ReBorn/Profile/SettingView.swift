@@ -59,8 +59,10 @@ struct SettingView: View {
                             Text("点击")
                                 .font(.custom(FZMS, size: 30))
                             Button {
-                                userData.isAdmin.toggle()
-                                isAdmin.toggle()
+                                withAnimation {
+                                    userData.isAdmin.toggle()
+                                    isAdmin.toggle()
+                                }
                                 strRole = isAdmin ? "管理员" : "用户"
                             } label: {
                                 Capsule()
@@ -172,6 +174,5 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
-            .environmentObject(ViewRouter())
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27CB9A98895EEA10DF95BEAF /* Pods_PeiYang_Board_ReBorn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */; };
 		E0189A0E280084690050B6EA /* NotiAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A0D280084690050B6EA /* NotiAdd.swift */; };
+		E0189A102800A3EA0050B6EA /* PublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A0F2800A3EA0050B6EA /* PublishView.swift */; };
 		E02430F727B6C939004856EF /* ProfileOnRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02430F627B6C939004856EF /* ProfileOnRegister.swift */; };
 		E08246C227B6148800A5A838 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C127B6148800A5A838 /* UserData.swift */; };
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
@@ -59,6 +60,7 @@
 		474D8B99F3BD676CB39B71D5 /* Pods-PeiYang-Board-ReBorn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PeiYang-Board-ReBorn.debug.xcconfig"; path = "Target Support Files/Pods-PeiYang-Board-ReBorn/Pods-PeiYang-Board-ReBorn.debug.xcconfig"; sourceTree = "<group>"; };
 		BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeiYang_Board_ReBorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0189A0D280084690050B6EA /* NotiAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiAdd.swift; sourceTree = "<group>"; };
+		E0189A0F2800A3EA0050B6EA /* PublishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishView.swift; sourceTree = "<group>"; };
 		E02430F627B6C939004856EF /* ProfileOnRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnRegister.swift; sourceTree = "<group>"; };
 		E08246C127B6148800A5A838 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				E0AC5E6C27B9411A0083BAE3 /* PubSuccess.swift */,
 				E0AC5E6D27B9411A0083BAE3 /* ActPerformance.swift */,
 				E0AC5E6E27B9411A0083BAE3 /* Chart.swift */,
+				E0189A0F2800A3EA0050B6EA /* PublishView.swift */,
 			);
 			path = Publish;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				E08246F327B6177400A5A838 /* MainPageHeader.swift in Sources */,
 				E08246F427B6177400A5A838 /* MainWeekIndicator2.swift in Sources */,
 				E0AB5EAE27B60D2B003D8C0F /* VisualEffectBlur.swift in Sources */,
+				E0189A102800A3EA0050B6EA /* PublishView.swift in Sources */,
 				E08246FA27B617BF00A5A838 /* CurrentTime.swift in Sources */,
 				E0AC5E7327B9411A0083BAE3 /* ActPerformance.swift in Sources */,
 				E0AB5EA527B60CFD003D8C0F /* PeiYang_Board_ReBorn.xcdatamodeld in Sources */,

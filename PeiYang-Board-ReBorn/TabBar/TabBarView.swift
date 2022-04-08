@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
 //    
     @EnvironmentObject var viewRouter: ViewRouter
+    @State var isAdmin = userData.isAdmin
     
     var body: some View {
         
@@ -24,25 +25,36 @@ struct TabBarView: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height/10)
 
-                    HStack(spacing: GeometryProxy.size.width/6){
-                        TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
-                        
-                        TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .AllNotis)
-                        
-                        
-//                        ZStack{
-//                            Image("Search")
-//                                .resizable()
-//                                .aspectRatio(contentMode: .fit)
-//                                .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
-//                                .foregroundColor(.orange)
-//                                .shadow(radius: 10,y: 5)
-//                        }
-//                        .onTapGesture {
-//                            viewRouter.currentPage = Page.Search
-//                        }
-                        
-                        TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .NotDone)
+                    if !isAdmin {
+                        HStack(spacing: GeometryProxy.size.width/6.5){
+                            TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
+                            
+                            TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .AllNotis)
+                            
+                            
+    //                        ZStack{
+    //                            Image("Search")
+    //                                .resizable()
+    //                                .aspectRatio(contentMode: .fit)
+    //                                .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
+    //                                .foregroundColor(.orange)
+    //                                .shadow(radius: 10,y: 5)
+    //                        }
+    //                        .onTapGesture {
+    //                            viewRouter.currentPage = Page.Search
+    //                        }
+                            
+                            TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .NotDone)
+                        }
+                    }
+                    else{
+                        HStack(spacing: GeometryProxy.size.width/6.5) {
+                            TabBarIcon(IconName: "Publish", tabName: "Publish", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .PublishView)
+                            Text("233")
+                        }
+                        .onAppear {
+                            print(userData.isAdmin)
+                        }
                     }
                 }
             }

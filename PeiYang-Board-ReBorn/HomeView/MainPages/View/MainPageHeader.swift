@@ -43,6 +43,10 @@ struct MainPageHeader: View {
                             .foregroundColor(Color("Main_Header_Font"))
                     }
                     .font(.custom(FZMS, size: 20))
+                    .onTapGesture {
+                        print(userData.isAdmin)
+                        print(viewRouter.isShow)
+                    }
                 }
                 .frame(height: ByHeight(Scale: 20))
                 

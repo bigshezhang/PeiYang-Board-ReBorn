@@ -20,6 +20,7 @@ enum Page{
     case Search
     case Login
     case Register
+    case PublishView
 }
 
 //struct ViewRouter_Previews: PreviewProvider {
