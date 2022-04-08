@@ -22,7 +22,8 @@ struct MainView: View {
             case .StarBox:
                 StarBoxView(viewRouter: viewRouter)
             case .Search:
-                SearchView()
+//                SearchView()
+                AllNotisView(viewRouter: viewRouter)
             case .Done:
                 DoneView(viewRouter: viewRouter)
             case .Login:
