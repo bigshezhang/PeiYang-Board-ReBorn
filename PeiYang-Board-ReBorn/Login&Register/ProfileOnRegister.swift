@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileOnRegister: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     
     @State private var nickname = ""
     @State private var school = ""
@@ -146,6 +146,7 @@ struct ProfileOnRegister: View {
 
 struct ProfileOnRegister_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileOnRegister(viewRouter: ViewRouter(), showProfileView: .constant(true))
+        ProfileOnRegister(showProfileView: .constant(true))
+            .environmentObject(ViewRouter())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AllNotisView: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         NavigationView {
             ZStack{
@@ -26,7 +26,7 @@ struct AllNotisView: View {
                 
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
-                        MainPageHeader(viewRouter: viewRouter)
+                        MainPageHeader()
 
                             .padding(.top)
                         
@@ -35,7 +35,7 @@ struct AllNotisView: View {
                             .padding(.bottom,ByHeight(Scale: 0.1))
 
                         ForEach(notis.indices,id: \.self){ i in
-                            MainPageNaviRow(viewRouter: viewRouter, noti: notis[i])
+                            MainPageNaviRow(noti: notis[i])
                         }
                         Spacer()
                             .padding(.bottom,ByHeight(Scale: 20))
@@ -56,6 +56,7 @@ struct AllNotisView: View {
 }
 struct AllNotisView_Previews: PreviewProvider {
     static var previews: some View {
-        AllNotisView(viewRouter: ViewRouter())
+        AllNotisView()
+            .environmentObject(ViewRouter())
     }
 }

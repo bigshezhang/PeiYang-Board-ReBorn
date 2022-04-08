@@ -13,7 +13,7 @@ struct MainPageDetail: View {
     @State var checked: Bool
     @State var stared: Bool
     @Environment(\.presentationMode) var presentationMode
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     
 //    init(){
 //        checked = noti.checked
@@ -145,6 +145,7 @@ struct MainPageDetail: View {
 
 struct MainPageDetail_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageDetail(noti: notis[0],checked: notis[0].checked,stared: notis[0].stared, viewRouter: ViewRouter())
+        MainPageDetail(noti: notis[0],checked: notis[0].checked,stared: notis[0].stared)
+            .environmentObject(ViewRouter())
     }
 }

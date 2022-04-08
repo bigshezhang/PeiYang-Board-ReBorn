@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPageHeader: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         ZStack{
             HStack {
@@ -51,7 +51,7 @@ struct MainPageHeader: View {
             HStack{               //头像
                 Spacer()
                 NavigationLink {
-                    SettingView(viewRouter: viewRouter)
+                    SettingView()
                         .onAppear {
                             viewRouter.isShow = false
                         }
@@ -80,6 +80,7 @@ struct MainPageHeader: View {
 
 struct MainPageHeader_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageHeader(viewRouter: ViewRouter())
+        MainPageHeader()
+            .environmentObject(ViewRouter())
     }
 }

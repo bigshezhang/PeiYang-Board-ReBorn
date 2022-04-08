@@ -9,29 +9,29 @@ import SwiftUI
 
 struct MainView: View {
 
-    @StateObject var viewRouter : ViewRouter
+    @EnvironmentObject var viewRouter : ViewRouter
     
     
     var body: some View {
         ZStack{
             switch viewRouter.currentPage {
             case .AllNotis:
-                AllNotisView(viewRouter: viewRouter)
+                AllNotisView()
             case .NotDone:
-                NotDoneView(viewRouter: viewRouter)
+                NotDoneView()
             case .StarBox:
-                StarBoxView(viewRouter: viewRouter)
+                StarBoxView()
             case .Search:
 //                SearchView()
-                AllNotisView(viewRouter: viewRouter)
+                AllNotisView()
             case .Done:
-                DoneView(viewRouter: viewRouter)
+                DoneView()
             case .Login:
-                LoginAndRegisterView(viewRouter: viewRouter)
+                LoginAndRegisterView()
             case .Register:
-                LoginAndRegisterView(viewRouter: viewRouter)
+                LoginAndRegisterView()
             }
-            TabBarView(viewRouter: viewRouter)
+            TabBarView()
                 .animation(Animation.default,value: viewRouter.isShow)
                 .offset(y: viewRouter.isShow ? 0 : ByHeight(Scale: 15))
         }
@@ -42,6 +42,7 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewRouter: ViewRouter())
+        MainView()
+            .environmentObject(ViewRouter())
     }
 }

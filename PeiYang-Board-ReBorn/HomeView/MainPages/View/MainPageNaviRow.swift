@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainPageNaviRow: View {
     @State var isActive = false
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var noti = Noti()
     var body: some View {
@@ -60,7 +60,7 @@ struct MainPageNaviRow: View {
             
             NavigationLink(
             
-                destination: MainPageDetail(noti: self.noti,checked: self.noti.checked,stared: self.noti.stared, viewRouter: viewRouter),
+                destination: MainPageDetail(noti: self.noti,checked: self.noti.checked,stared: self.noti.stared),
                 isActive: $isActive,
                 label: {
                     EmptyView()
@@ -79,7 +79,8 @@ struct MainPageNaviRow: View {
 
 struct MainPageNaviRow_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageNaviRow(viewRouter: ViewRouter(), noti: notis[1])
+        MainPageNaviRow(noti: notis[1])
+            .environmentObject(ViewRouter())
     }
 
 }

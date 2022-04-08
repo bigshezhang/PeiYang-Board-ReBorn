@@ -10,7 +10,7 @@ import FirebaseAuth
 import AuthenticationServices
 
 struct LoginAndRegisterView: View {
-    @StateObject var viewRouter : ViewRouter
+    @EnvironmentObject var viewRouter : ViewRouter
     
     @State private var email: String = "123456@qq.com"
     @State private var password: String = "123456"
@@ -34,7 +34,7 @@ struct LoginAndRegisterView: View {
     
     var body: some View {
         if(isSigned && viewRouter.currentPage == .AllNotis){    //能跳转时
-            MainView(viewRouter: viewRouter)
+            MainView()
         } else {
             SignCard()
         }
@@ -226,7 +226,7 @@ struct LoginAndRegisterView: View {
                 }
             }
             .fullScreenCover(isPresented: $showProfileView) {
-                ProfileOnRegister(viewRouter: viewRouter, showProfileView: $showProfileView)
+                ProfileOnRegister(showProfileView: $showProfileView)
             }
             .animation(Animation.spring(),value: viewRouter.currentPage)
         }
@@ -303,6 +303,7 @@ struct LoginAndRegisterView: View {
 
 struct LoginAndRegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginAndRegisterView(viewRouter: ViewRouter())
+        LoginAndRegisterView()
+            .environmentObject(ViewRouter())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
 //    
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     
     var body: some View {
         
@@ -25,7 +25,7 @@ struct TabBarView: View {
                     .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height/10)
 
                     HStack(spacing: GeometryProxy.size.width/9){
-                        TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, viewRouter: viewRouter, assignedPage: .StarBox)
+                        TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
                         
                         ZStack{
                             Image("Search")
@@ -38,7 +38,7 @@ struct TabBarView: View {
                         .onTapGesture {
                             viewRouter.currentPage = Page.Search
                         }
-                        TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, viewRouter: viewRouter, assignedPage: .NotDone)
+                        TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .NotDone)
                     }
                 }
             }
@@ -61,7 +61,8 @@ struct TabBarView: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView(viewRouter: ViewRouter())
+        TabBarView()
+            .environmentObject(ViewRouter())
     }
 }
 
@@ -69,7 +70,7 @@ struct TabBarIcon: View {
     let IconName, tabName: String
     let width, height: CGFloat
     let color: Color
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     let assignedPage : Page
     
     var body: some View {

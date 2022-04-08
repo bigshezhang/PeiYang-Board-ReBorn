@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotDoneView: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         NavigationView {
             ZStack{
@@ -23,7 +23,7 @@ struct NotDoneView: View {
                 }
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
-                        MainPageHeader(viewRouter: viewRouter)
+                        MainPageHeader()
                             .onTapGesture {
                                 viewRouter.isShow.toggle()
                             }
@@ -52,6 +52,7 @@ struct NotDoneView: View {
 
 struct NotDoneView_Previews: PreviewProvider {
     static var previews: some View {
-        NotDoneView(viewRouter: ViewRouter())
+        NotDoneView()
+            .environmentObject(ViewRouter())
     }
 }

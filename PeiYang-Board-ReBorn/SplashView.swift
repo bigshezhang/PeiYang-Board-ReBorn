@@ -13,7 +13,7 @@ import Combine
 import FirebaseAuth
 
 struct SplashView: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     
     @State private var isSplashLoaded = false        //Whether Splashing Loaded
     @State private var isSplashing: Bool = true
@@ -53,10 +53,10 @@ struct SplashView: View {
                 .ignoresSafeArea()
                 .onAppear(perform: end_splashing)
             } else if !userData.isNeedLogin {
-                MainView(viewRouter: viewRouter) //如果不需要登陆，进入主页面
+                MainView() //如果不需要登陆，进入主页面
             } else{
 //                ProfileOnRegister()
-                LoginAndRegisterView(viewRouter: viewRouter) //需要登陆
+                LoginAndRegisterView() //需要登陆
             }
         }
     }
@@ -73,6 +73,7 @@ struct SplashView: View {
 
 struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
-        SplashView(viewRouter: ViewRouter())
+        SplashView()
+            .environmentObject(ViewRouter())
     }
 }

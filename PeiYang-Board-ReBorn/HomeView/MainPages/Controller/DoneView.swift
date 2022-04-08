@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DoneView: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         VStack{
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -19,6 +19,7 @@ struct DoneView: View {
 
 struct DoneView_Previews: PreviewProvider {
     static var previews: some View {
-        DoneView(viewRouter: ViewRouter())
+        DoneView()
+            .environmentObject(ViewRouter())
     }
 }

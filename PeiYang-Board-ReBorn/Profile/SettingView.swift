@@ -9,7 +9,7 @@ import SwiftUI
 import FirebaseAuth
 
 struct SettingView: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     @Environment(\.presentationMode) var presentationMode
     
     @State private var isAdmin = userData.isAdmin
@@ -171,6 +171,7 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView(viewRouter: ViewRouter())
+        SettingView()
+            .environmentObject(ViewRouter())
     }
 }

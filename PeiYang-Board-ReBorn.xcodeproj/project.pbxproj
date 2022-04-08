@@ -134,6 +134,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E0189A0C280077180050B6EA /* Task */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
 		E08246C027B6142F00A5A838 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +246,7 @@
 			children = (
 				E0AB5E9827B60CFB003D8C0F /* PeiYang_Board_ReBornApp.swift */,
 				E0AB5EB027B60E9A003D8C0F /* SplashView.swift */,
+				E0189A0C280077180050B6EA /* Task */,
 				E0AC5E7927BC9A710083BAE3 /* Profile */,
 				E0AC5E6B27B9411A0083BAE3 /* Publish */,
 				E0AC5E6F27B9411A0083BAE3 /* Search */,

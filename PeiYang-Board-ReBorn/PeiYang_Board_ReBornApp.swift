@@ -24,7 +24,8 @@ struct PeiYang_Board_ReBornApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashView(viewRouter: viewRouter)
+            SplashView()
+                .environmentObject(ViewRouter())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

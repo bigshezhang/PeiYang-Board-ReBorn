@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StarBoxView: View {
-    @StateObject var viewRouter: ViewRouter
+    @EnvironmentObject var viewRouter: ViewRouter
     var body: some View {
         NavigationView {
             ZStack{
@@ -23,7 +23,7 @@ struct StarBoxView: View {
                 }
                 ScrollView(.vertical, showsIndicators: false){
                     VStack{
-                        MainPageHeader(viewRouter: viewRouter)
+                        MainPageHeader()
                             .onTapGesture {
                                 viewRouter.isShow.toggle()
                             }
@@ -35,7 +35,7 @@ struct StarBoxView: View {
 
                         ForEach(notis.indices,id: \.self){ i in
                             if(notis[i].stared == true){
-                                MainPageNaviRow(viewRouter: viewRouter, noti: notis[i])
+                                MainPageNaviRow(noti: notis[i])
                             }
                         }
 
@@ -53,6 +53,7 @@ struct StarBoxView: View {
 
 struct StarBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        StarBoxView(viewRouter: ViewRouter())
+        StarBoxView()
+            .environmentObject(ViewRouter())
     }
 }
