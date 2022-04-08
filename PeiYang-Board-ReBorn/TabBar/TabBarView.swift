@@ -24,20 +24,24 @@ struct TabBarView: View {
                     .edgesIgnoringSafeArea(.all)
                     .frame(width: GeometryProxy.size.width, height: GeometryProxy.size.height/10)
 
-                    HStack(spacing: GeometryProxy.size.width/9){
+                    HStack(spacing: GeometryProxy.size.width/6){
                         TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
                         
-                        ZStack{
-                            Image("Search")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
-                                .foregroundColor(.orange)
-                                .shadow(radius: 10,y: 5)
-                        }
-                        .onTapGesture {
-                            viewRouter.currentPage = Page.Search
-                        }
+                        TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .AllNotis)
+                        
+                        
+//                        ZStack{
+//                            Image("Search")
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: GeometryProxy.size.width/4, height: GeometryProxy.size.width/4)
+//                                .foregroundColor(.orange)
+//                                .shadow(radius: 10,y: 5)
+//                        }
+//                        .onTapGesture {
+//                            viewRouter.currentPage = Page.Search
+//                        }
+                        
                         TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .NotDone)
                     }
                 }
@@ -81,6 +85,7 @@ struct TabBarIcon: View {
                 .frame(width: width, height: height)
                 .symbolRenderingMode(.hierarchical)
                 .foregroundColor(color)
+            
             Text(tabName)
                 .font(.system(size: 14))
         }
