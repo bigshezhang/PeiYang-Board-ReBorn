@@ -50,7 +50,6 @@ struct TabBarView: View {
                     else{
                         HStack(spacing: GeometryProxy.size.width/6.5) {
                             TabBarIcon(IconName: "Publish", tabName: "Publish", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .PublishView)
-                            Text("233")
                         }
                         .onAppear {
                             print("tabbar",userData.isAdmin)

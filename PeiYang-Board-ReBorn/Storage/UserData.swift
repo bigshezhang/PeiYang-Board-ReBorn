@@ -63,9 +63,4 @@ extension Array: RawRepresentable where Element: Codable {
         return result
     }
 }
-<<<<<<< HEAD
-=======
 
-
-var userData = UserData()
->>>>>>> 2e58ce539dd4a82b57798d2fa3cb399520363f9a
