@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI
 
-struct Noti: Identifiable{
-    @State public var checked: Bool
-    @State public var stared: Bool
+struct Noti: Identifiable, Codable, Equatable{
+    var checked: Bool
+    var stared: Bool
     var id: Int
     var title: String
     var main_text: String
     var publisher: String
     var publish_time: String
     var tags: [String]
-    var img: Image
+//    var img: Image
     
     init(){
         id = 1
@@ -25,7 +25,7 @@ struct Noti: Identifiable{
         main_text = "好累啊，早点睡觉吧，明天早点起床去图书馆继续卷，卷4⃣️你们"
         publisher = "我"
         tags = ["摸鱼","放假","打电动"]
-        img = Image("user")
+//        img = Image("user")
         publish_time = "12:00"
         checked = false
         stared = false
@@ -37,6 +37,24 @@ struct Noti: Identifiable{
 //        img = Image("Looper")
 //        publish_time = "00:00"
 //        id = 1
+    }
+}
+
+final class NotiStore: ObservableObject {
+    @Published var Notis: [Noti] = []{
+        didSet{
+            if let data = try? JSONEncoder().encode(Notis){
+                UserDefaults.standard.set(data, forKey: "Notis")
+            }
+        }
+    }
+    
+    init(){
+        if let data = UserDefaults.standard.data(forKey: "Notis"){
+            if let Notis = try?JSONDecoder().decode([Noti].self, from: data){
+                self.Notis = Notis
+            }
+        }
     }
 }
 

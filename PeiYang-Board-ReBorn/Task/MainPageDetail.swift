@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainPageDetail: View {
-    var noti = Noti()
+    @State var noti = Noti()
     
     @State var checked: Bool
     @State var stared: Bool
@@ -66,7 +66,7 @@ struct MainPageDetail: View {
 //                .padding(.leading,ByWidth(Scale: 8))
                 
                 ScrollView(.vertical,showsIndicators: false){
-                    noti.img
+                    Image("user")
                         .resizable()
                         .scaledToFill()
                         .frame(width: ByWidth(Scale: 85), height: ByHeight(Scale: 25), alignment: .center)

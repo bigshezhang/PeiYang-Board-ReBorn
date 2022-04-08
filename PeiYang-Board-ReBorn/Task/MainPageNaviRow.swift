@@ -14,7 +14,7 @@ struct MainPageNaviRow: View {
     var noti = Noti()
     var body: some View {
         HStack(alignment: .center){
-            noti.img
+            Image("user")
                 .resizable()
                 .scaledToFit()
                 .clipShape(Circle())
