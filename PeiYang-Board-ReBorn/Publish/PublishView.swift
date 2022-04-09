@@ -13,8 +13,6 @@ struct PublishView: View {
     @EnvironmentObject var NotiStore: NotiStore
     @EnvironmentObject var userData: UserData
     
-    @State var AddedNoti = Noti()
-    
     @State var title : String = ""
     @State var tags : [String] = []
     @State var mainText : String = ""
@@ -47,7 +45,7 @@ struct PublishView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
 
-                    TextField(text: $AddedNoti.title, label: {
+                    TextField(text: $title, label: {
                         Text("输入标题")
                     })
                     .font(.system(size: 22))
@@ -68,7 +66,7 @@ struct PublishView: View {
                             .padding(.horizontal)
                         )
                         .onSubmit {
-                            AddedNoti.tags.append(tempTag)
+                            tags.append(tempTag)
                             tempTag = ""
                         }
                 }
@@ -77,7 +75,7 @@ struct PublishView: View {
                 
                 ScrollView(.horizontal,showsIndicators: false){
                     HStack{
-                        ForEach(AddedNoti.tags, id: \.self){ tag in
+                        ForEach(tags, id: \.self){ tag in
                             Text("#\(tag)")
                                 .font(.custom(FZMS, size: 24))
                                 .foregroundColor(Color("Main_Tag_Font"))
@@ -131,7 +129,7 @@ struct PublishView: View {
 //                        .offset(y: ByHeight(Scale: -1))  //迫不得已用offset
                         .padding(.top, ByHeight(Scale: 1.8))
                         .overlay(
-                            TextEditor(text: $AddedNoti.main_text)
+                            TextEditor(text: $mainText)
                                 .font(.system(size: 18))
                                 .foregroundColor(Color.gray)
                                 .padding()
@@ -169,9 +167,7 @@ struct PublishView: View {
         }
     }
     func submit() -> Void{
-        NotiStore.Notis.append(AddedNoti)
-        
-        NotiStore.Notis.append(Noti())
+        NotiStore.Notis.append(Noti(id: UUID(), title: self.title, main_text: self.mainText, tags: self.tags, publisher: userData.nickname, publish_time: "1200"))
     }
 }
 

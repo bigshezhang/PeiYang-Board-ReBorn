@@ -29,7 +29,7 @@ struct TabBarView: View {
                         HStack(spacing: GeometryProxy.size.width/6.5){
                             TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
                             
-                            TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .AllNotis)
+                            TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .NotDone)
                             
                             
     //                        ZStack{
@@ -44,7 +44,7 @@ struct TabBarView: View {
     //                            viewRouter.currentPage = Page.Search
     //                        }
                             
-                            TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .NotDone)
+                            TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .AllNotis)
                         }
                     }
                     else{

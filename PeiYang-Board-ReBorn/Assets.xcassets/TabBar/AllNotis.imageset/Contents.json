@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "Ellipse 45.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "tray.2@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

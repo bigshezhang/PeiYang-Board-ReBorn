@@ -13,117 +13,133 @@ struct SearchView: View {
     @State private var stringOfText : String = ""//输入的文本
     @State private var isSearching: Bool = false
     @EnvironmentObject var Notiss: NotiStore
+    @Environment(\.presentationMode) var presentationModess
     var searchResult: [Noti] {
         return Notiss.Notis.filter{
             $0.main_text.contains(stringOfText)
         }
     }
     var body: some View {
-        ZStack{
-            Image("SearchView-1")
-                .offset(y:-270)
-            Image("SearchView-2")
-                .offset(y:-270)
-            VStack{
-                SearchTopView(historySearch: $historySearch, stringOfText: $stringOfText, isSearching: $isSearching)
-                if !isSearching{
-                    HStack{
-                        Text("搜索记录")
-                            .font(.custom(FZMS, size: 20))
-                            .foregroundColor(.black)
-                            .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 0))
-                        Spacer()
-                    }
-        
-                    ZStack{
-                        VStack(spacing: 20){
-                            ForEach(historySearch, id: \.self) { h in
-                                Button(action: {
-                                    question = h
-                                }, label: {
-                                    HStack{
-                                        Text(h)
-                                            .font(.custom(FZMS, size: 20))
-                                            .foregroundColor(.black)
-                                        Spacer()
-                                    }
-                                })
-                            }
-                            
-                        }
-                    }
-                        .padding(.leading, 50)
-                        .padding(.top, 5)
-                    
-                    
-                        Button(action: {
-                            historySearch = []
-                        }){
-                            Text("删除")
-                                .font(.custom(FZMS, size: 20))
-                        }
-                        .padding(.top, 10)
-                    
-                    VStack(spacing: 15){
-                        Button(action:{
-                            print("Hello, world!")
-                        }){
-                            ZStack{
-                                HStack{
-                                    Text("#疫情防控")
-                                        .font(.custom(FZMS, size: 25))
-                                        .padding(EdgeInsets(top: 10, leading: 9, bottom: 10, trailing: 10))
-                                        .background(Color.init(red: 255, green: 235, blue: 197))
-                                        .cornerRadius(30)
-                                    Spacer()
-                                }.padding(.leading, 20)
-                            }
-                            
-                        }
+        NavigationView(){
+            ZStack{
+                Image("SearchView-1")
+                    .offset(y:-270)
+                Image("SearchView-2")
+                    .offset(y:-270)
+                VStack{
+                    SearchTopView(historySearch: $historySearch, stringOfText: $stringOfText, isSearching: $isSearching)
+                    if !isSearching{
                         HStack{
-                            Button(action:{
-                                print("Hello, world!")
-                            }){
-                                ZStack{
-                                    HStack{
-                                        Text("#疫情防控")
-                                            .font(.custom(FZMS, size: 20))
-                                            .padding(EdgeInsets(top: 5, leading: 7, bottom: 5, trailing: 9))
-                                            .background(Color.init(red: 255, green: 235, blue: 197))
-                                            .cornerRadius(30)
-                                        Spacer()
-                                    }.padding(.leading, 20)
-                                }
-                                
-                            }
-                            Button(action:{
-                                print("Hello, world!")
-                            }){
-                                ZStack{
-                                    HStack{
-                                        Text("#疫情防控")
-                                            .font(.custom(FZMS, size: 20))
-                                            .padding(EdgeInsets(top: 5, leading: 7, bottom: 5, trailing: 9))
-                                            .background(Color.init(red: 255, green: 235, blue: 197))
-                                            .cornerRadius(30)
-                                        Spacer()
-                                    }.padding(.leading, 20)
-                                }
-                                
-                            }
-                            
+                            Text("搜索记录")
+                                .font(.custom(FZMS, size: 20))
+                                .foregroundColor(.black)
+                                .padding(EdgeInsets(top: 10, leading: 30, bottom: 0, trailing: 0))
+                            Spacer()
                         }
-                    }
-                    Spacer()
-                }else {
-                VStack(spacing: 20){
-                    ForEach(searchResult.indices, id: \.self) { h in
-                        MainPageNaviRow(number: h)
+            
+                        ZStack{
+                            VStack(spacing: 20){
+                                ForEach(historySearch, id: \.self) { h in
+                                    Button(action: {
+                                        question = h
+                                    }, label: {
+                                        HStack{
+                                            Text(h)
+                                                .font(.custom(FZMS, size: 20))
+                                                .foregroundColor(.black)
+                                            Spacer()
+                                        }
+                                    })
+                                }
+                                
+                            }
+                        }
+                            .padding(.leading, 50)
+                            .padding(.top, 5)
+                        
+                        
+                            Button(action: {
+                                historySearch = []
+                            }){
+                                Text("删除")
+                                    .font(.custom(FZMS, size: 20))
+                            }
+                            .padding(.top, 10)
+                        
+                        VStack(spacing: 15){
+                            Button(action:{
+                                print("Hello, world!")
+                            }){
+                                ZStack{
+                                    HStack{
+                                        Text("#疫情防控")
+                                            .font(.custom(FZMS, size: 25))
+                                            .padding(EdgeInsets(top: 10, leading: 9, bottom: 10, trailing: 10))
+                                            .background(Color.init(red: 255, green: 235, blue: 197))
+                                            .cornerRadius(30)
+                                        Spacer()
+                                    }.padding(.leading, 20)
+                                }
+                                
+                            }
+                            HStack{
+                                Button(action:{
+                                    print("Hello, world!")
+                                }){
+                                    ZStack{
+                                        HStack{
+                                            Text("#疫情防控")
+                                                .font(.custom(FZMS, size: 20))
+                                                .padding(EdgeInsets(top: 5, leading: 7, bottom: 5, trailing: 9))
+                                                .background(Color.init(red: 255, green: 235, blue: 197))
+                                                .cornerRadius(30)
+                                            Spacer()
+                                        }.padding(.leading, 20)
+                                    }
+                                    
+                                }
+                                Button(action:{
+                                    print("Hello, world!")
+                                }){
+                                    ZStack{
+                                        HStack{
+                                            Text("#疫情防控")
+                                                .font(.custom(FZMS, size: 20))
+                                                .padding(EdgeInsets(top: 5, leading: 7, bottom: 5, trailing: 9))
+                                                .background(Color.init(red: 255, green: 235, blue: 197))
+                                                .cornerRadius(30)
+                                            Spacer()
+                                        }.padding(.leading, 20)
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
+                        Button("返回"){
+                            self.presentationModess.wrappedValue.dismiss()
+                        }
+                        Spacer()
+                    }else {
+                    VStack(spacing: 20){
+                        ForEach(searchResult.indices, id: \.self) { h in
+                            NavigationLink {
+                                MainPageDetail(number: h+1)
+                            } label: {
+                                MainPageNaviRow(number: h+1)
+                            }
+
+                        }
+                        Spacer()
+                            
                     }
                 }
             }
         }
-    }
+            .navigationBarHidden(true)
+        }
+        
+       
 }
 
 
@@ -143,19 +159,13 @@ fileprivate struct SearchTopView: View{
                     questionImage()
                 }.offset(x:35 , y:-10)
                 
-                TextField("", text: $stringOfText, onEditingChanged: {_ in}, onCommit: {
-//                    searchQuestion(stringOfText: stringOfText)
+                TextField("", text: $stringOfText, onCommit: {
                     isSearching.toggle()
                 })
                     .font(Font.system(size: 30))
-//                    .background(Color.white)
-                    .background(Color.yellow)
-                    .foregroundColor(Color.clear)
-//                            .cornerRadius(5)
-                    .overlay(Text(stringOfText), alignment: .leading)
-//                    .padding()
+                    .background(Color.white)
+                    .foregroundColor(Color.gray)
                     .padding(EdgeInsets(top: 2, leading: 35, bottom: 0, trailing: 21))
-//                            .shadow(radius: 10)
                     .frame(width: 300, height: 70)
                     
             }

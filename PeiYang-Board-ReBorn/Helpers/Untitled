@@ -1,0 +1,424 @@
+diff --git a/PeiYang-Board-ReBorn.xcworkspace/xcuserdata/lazyman.xcuserdatad/UserInterfaceState.xcuserstate b/PeiYang-Board-ReBorn.xcworkspace/xcuserdata/lazyman.xcuserdatad/UserInterfaceState.xcuserstate
+index 3f80999..ba1662b 100644
+Binary files a/PeiYang-Board-ReBorn.xcworkspace/xcuserdata/lazyman.xcuserdatad/UserInterfaceState.xcuserstate and b/PeiYang-Board-ReBorn.xcworkspace/xcuserdata/lazyman.xcuserdatad/UserInterfaceState.xcuserstate differ
+diff --git a/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/Contents.json b/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/Contents.json
+index 56643eb..16ef6d3 100644
+--- a/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/Contents.json
++++ b/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/Contents.json
+@@ -1,11 +1,11 @@
+ {
+   "images" : [
+     {
++      "filename" : "Ellipse 45.svg",
+       "idiom" : "universal",
+       "scale" : "1x"
+     },
+     {
+-      "filename" : "tray.2@2x.png",
+       "idiom" : "universal",
+       "scale" : "2x"
+     },
+diff --git a/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/Ellipse 45.svg b/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/Ellipse 45.svg
+similarity index 100%
+rename from PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/Ellipse 45.svg
+rename to PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/Ellipse 45.svg
+diff --git a/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/Contents.json b/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/Contents.json
+index 16ef6d3..56643eb 100644
+--- a/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/Contents.json
++++ b/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/Contents.json
+@@ -1,11 +1,11 @@
+ {
+   "images" : [
+     {
+-      "filename" : "Ellipse 45.svg",
+       "idiom" : "universal",
+       "scale" : "1x"
+     },
+     {
++      "filename" : "tray.2@2x.png",
+       "idiom" : "universal",
+       "scale" : "2x"
+     },
+diff --git a/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/tray.2@2x.png b/PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/tray.2@2x.png
+similarity index 100%
+rename from PeiYang-Board-ReBorn/Assets.xcassets/TabBar/AllNotis.imageset/tray.2@2x.png
+rename to PeiYang-Board-ReBorn/Assets.xcassets/TabBar/NotDone.imageset/tray.2@2x.png
+diff --git a/PeiYang-Board-ReBorn/HomeView/MainPages/View/Home_components.swift b/PeiYang-Board-ReBorn/HomeView/MainPages/View/Home_components.swift
+index 7b4feba..e274a38 100755
+--- a/PeiYang-Board-ReBorn/HomeView/MainPages/View/Home_components.swift
++++ b/PeiYang-Board-ReBorn/HomeView/MainPages/View/Home_components.swift
+@@ -1,94 +1,94 @@
++////
++////  Home_components.swift
++////  Peiyang Board
++////
++////  Created by 李子鸣 on 2022/1/13.
++////
+ //
+-//  Home_components.swift
+-//  Peiyang Board
++//import SwiftUI
+ //
+-//  Created by 李子鸣 on 2022/1/13.
+-//
+-
+-import SwiftUI
+-
+-@ViewBuilder
+-func Head_View()->some View{
+-    HStack {
+-        VStack{
+-            ZStack{
+-                Text("\(time.month)月\(time.day)日")
+-                    .font(.system(size: 40))
+-                    .foregroundColor(Color("Main_Font"))
+-                    .position(x: 100, y: 40)
+-                
+-                Image(systemName: "sun.max")
+-                    .rotationEffect(Angle.init(degrees: -5))
+-                    .font(.system(size: 30))
+-                    .position(x: 178, y: 15)
+-                    
+-            }
+-            Path{path in
+-                path.move(to: CGPoint(x: 35, y: 25))
+-                path.addLine(to: CGPoint(x: 163, y: 25))
+-                
+-            }
+-            .strokedPath(StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
+-            .fill(Color("Main_Font"))
+-            
+-            HStack{
+-                Text("总消息数")
+-                    .font(.system(size: 18))
+-                    .foregroundColor(Color("Main_Font"))
+-                    .position(x: 70, y: 0)
+-                
+-                Text("\(notis.count)")
+-                    .font(.system(size: 20))
+-                    .foregroundColor(Color("Main_Font"))
+-                    .position(x: 55, y: 0)
+-            }
+-        }
+-        HStack{
+-            ZStack{
+-                Text("@")
+-                    .font(.system(size: 100))
+-                    .foregroundColor(Color("Main_Font"))
+-                    .position(x: 120, y: 44)
+-                
+-                Image("user")
+-                    .resizable()
+-                    .frame(width: 60, height: 60)
+-                    .clipShape(Circle())
+-                    .position(x: 123, y: 50)
+-                    .shadow(color: Color.gray, radius: 10, x: 5, y: 5)
+-                
+-                ZStack{
+-                    Circle()
+-                        .frame(width: 30, height: 30)
+-                        .foregroundColor(Color("Red_Dot"))
+-                        .shadow(color: Color.gray, radius: 5, x: 3, y: 3)
+-                    Text("\(notis.count)")
+-                        .foregroundColor(Color("Red_Dot_Font"))
+-                }
+-                .position(x: 150, y: 20)
+-            }
+-        }
+-    }
+-}
+-
+ //@ViewBuilder
+-//func Footer_View() -> some View{
+-//    TabView {
+-//
+-//        Main_Page()
+-//             .symbolRenderingMode(.hierarchical)
+-//             .foregroundColor(.blue)
+-//         .tabItem {
+-//            Image(systemName: "checkmark.circle")
+-//                 .symbolRenderingMode(.hierarchical)
+-//                 .foregroundColor(.blue)
+-//            Text("已完成")
+-//          }
+-//        Image(systemName: "figure.walk")
+-//         .tabItem {
+-//            Image(systemName: "figure.walk")
+-//            Text("未完成")
+-//          }
++//func Head_View()->some View{
++//    HStack {
++//        VStack{
++//            ZStack{
++//                Text("\(time.month)月\(time.day)日")
++//                    .font(.system(size: 40))
++//                    .foregroundColor(Color("Main_Font"))
++//                    .position(x: 100, y: 40)
++//                
++//                Image(systemName: "sun.max")
++//                    .rotationEffect(Angle.init(degrees: -5))
++//                    .font(.system(size: 30))
++//                    .position(x: 178, y: 15)
++//                    
++//            }
++//            Path{path in
++//                path.move(to: CGPoint(x: 35, y: 25))
++//                path.addLine(to: CGPoint(x: 163, y: 25))
++//                
++//            }
++//            .strokedPath(StrokeStyle(lineWidth: 2.5, lineCap: .round, lineJoin: .round))
++//            .fill(Color("Main_Font"))
++//            
++//            HStack{
++//                Text("总消息数")
++//                    .font(.system(size: 18))
++//                    .foregroundColor(Color("Main_Font"))
++//                    .position(x: 70, y: 0)
++//                
++//                Text("\(Notis.count)")
++//                    .font(.system(size: 20))
++//                    .foregroundColor(Color("Main_Font"))
++//                    .position(x: 55, y: 0)
++//            }
++//        }
++//        HStack{
++//            ZStack{
++//                Text("@")
++//                    .font(.system(size: 100))
++//                    .foregroundColor(Color("Main_Font"))
++//                    .position(x: 120, y: 44)
++//                
++//                Image("user")
++//                    .resizable()
++//                    .frame(width: 60, height: 60)
++//                    .clipShape(Circle())
++//                    .position(x: 123, y: 50)
++//                    .shadow(color: Color.gray, radius: 10, x: 5, y: 5)
++//                
++//                ZStack{
++//                    Circle()
++//                        .frame(width: 30, height: 30)
++//                        .foregroundColor(Color("Red_Dot"))
++//                        .shadow(color: Color.gray, radius: 5, x: 3, y: 3)
++//                    Text("\(notis.count)")
++//                        .foregroundColor(Color("Red_Dot_Font"))
++//                }
++//                .position(x: 150, y: 20)
++//            }
++//        }
+ //    }
+ //}
+-
++//
++////@ViewBuilder
++////func Footer_View() -> some View{
++////    TabView {
++////
++////        Main_Page()
++////             .symbolRenderingMode(.hierarchical)
++////             .foregroundColor(.blue)
++////         .tabItem {
++////            Image(systemName: "checkmark.circle")
++////                 .symbolRenderingMode(.hierarchical)
++////                 .foregroundColor(.blue)
++////            Text("已完成")
++////          }
++////        Image(systemName: "figure.walk")
++////         .tabItem {
++////            Image(systemName: "figure.walk")
++////            Text("未完成")
++////          }
++////    }
++////}
++//
+diff --git a/PeiYang-Board-ReBorn/HomeView/MainPages/View/MainPageHeader.swift b/PeiYang-Board-ReBorn/HomeView/MainPages/View/MainPageHeader.swift
+index de7c421..0d3256f 100644
+--- a/PeiYang-Board-ReBorn/HomeView/MainPages/View/MainPageHeader.swift
++++ b/PeiYang-Board-ReBorn/HomeView/MainPages/View/MainPageHeader.swift
+@@ -10,6 +10,7 @@ import SwiftUI
+ struct MainPageHeader: View {
+     @EnvironmentObject var viewRouter: ViewRouter
+     @EnvironmentObject var userData: UserData
++    @EnvironmentObject var NotiStore: NotiStore
+     var body: some View {
+         ZStack{
+             HStack {
+@@ -39,7 +40,7 @@ struct MainPageHeader: View {
+                         Text("总消息数")
+                             .foregroundColor(Color("Main_Header_Font"))
+                             
+-                        Text("\(notis.count)")
++                        Text("\(NotiStore.Notis.count)")
+                             .frame(width: 40)
+                             .foregroundColor(Color("Main_Header_Font"))
+                     }
+diff --git a/PeiYang-Board-ReBorn/Publish/PublishView.swift b/PeiYang-Board-ReBorn/Publish/PublishView.swift
+index 242317e..a7e6298 100644
+--- a/PeiYang-Board-ReBorn/Publish/PublishView.swift
++++ b/PeiYang-Board-ReBorn/Publish/PublishView.swift
+@@ -13,8 +13,6 @@ struct PublishView: View {
+     @EnvironmentObject var NotiStore: NotiStore
+     @EnvironmentObject var userData: UserData
+     
+-    @State var AddedNoti = Noti()
+-    
+     @State var title : String = ""
+     @State var tags : [String] = []
+     @State var mainText : String = ""
+@@ -47,7 +45,7 @@ struct PublishView: View {
+                             presentationMode.wrappedValue.dismiss()
+                         }
+ 
+-                    TextField(text: $AddedNoti.title, label: {
++                    TextField(text: $title, label: {
+                         Text("输入标题")
+                     })
+                     .font(.system(size: 22))
+@@ -68,7 +66,7 @@ struct PublishView: View {
+                             .padding(.horizontal)
+                         )
+                         .onSubmit {
+-                            AddedNoti.tags.append(tempTag)
++                            tags.append(tempTag)
+                             tempTag = ""
+                         }
+                 }
+@@ -77,7 +75,7 @@ struct PublishView: View {
+                 
+                 ScrollView(.horizontal,showsIndicators: false){
+                     HStack{
+-                        ForEach(AddedNoti.tags, id: \.self){ tag in
++                        ForEach(tags, id: \.self){ tag in
+                             Text("#\(tag)")
+                                 .font(.custom(FZMS, size: 24))
+                                 .foregroundColor(Color("Main_Tag_Font"))
+@@ -131,7 +129,7 @@ struct PublishView: View {
+ //                        .offset(y: ByHeight(Scale: -1))  //迫不得已用offset
+                         .padding(.top, ByHeight(Scale: 1.8))
+                         .overlay(
+-                            TextEditor(text: $AddedNoti.main_text)
++                            TextEditor(text: $mainText)
+                                 .font(.system(size: 18))
+                                 .foregroundColor(Color.gray)
+                                 .padding()
+@@ -169,9 +167,7 @@ struct PublishView: View {
+         }
+     }
+     func submit() -> Void{
+-        NotiStore.Notis.append(AddedNoti)
+-        
+-        NotiStore.Notis.append(Noti())
++        NotiStore.Notis.append(Noti(id: UUID(), title: self.title, main_text: self.mainText, tags: self.tags, publisher: userData.nickname, publish_time: "1200"))
+     }
+ }
+ 
+diff --git a/PeiYang-Board-ReBorn/Storage/NotisStorage.swift b/PeiYang-Board-ReBorn/Storage/NotisStorage.swift
+index fe49d2e..9774d3f 100644
+--- a/PeiYang-Board-ReBorn/Storage/NotisStorage.swift
++++ b/PeiYang-Board-ReBorn/Storage/NotisStorage.swift
+@@ -59,7 +59,7 @@ final class NotiStore: ObservableObject {
+     }
+     
+     init(){
+-        Notis.append(Noti())
++//        Notis.append(Noti())
+         
+         if let data = UserDefaults.standard.data(forKey: "Notis"){
+             if let Notis = try?JSONDecoder().decode([Noti].self, from: data){
+@@ -68,5 +68,3 @@ final class NotiStore: ObservableObject {
+         }
+     }
+ }
+-
+-var notis = [Noti](repeating: Noti(), count: 7)
+diff --git a/PeiYang-Board-ReBorn/TabBar/TabBarView.swift b/PeiYang-Board-ReBorn/TabBar/TabBarView.swift
+index 1e1c685..e55fe16 100644
+--- a/PeiYang-Board-ReBorn/TabBar/TabBarView.swift
++++ b/PeiYang-Board-ReBorn/TabBar/TabBarView.swift
+@@ -29,7 +29,7 @@ struct TabBarView: View {
+                         HStack(spacing: GeometryProxy.size.width/6.5){
+                             TabBarIcon(IconName: "StarBox", tabName: "StarBox", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .StarBox)
+                             
+-                            TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .AllNotis)
++                            TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .yellow, assignedPage: .NotDone)
+                             
+                             
+     //                        ZStack{
+@@ -44,7 +44,7 @@ struct TabBarView: View {
+     //                            viewRouter.currentPage = Page.Search
+     //                        }
+                             
+-                            TabBarIcon(IconName: "NotDone", tabName: "To be Done", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .NotDone)
++                            TabBarIcon(IconName: "AllNotis", tabName: "AllNotis", width: IconWidth, height: IconHeight,color: .blue, assignedPage: .AllNotis)
+                         }
+                     }
+                     else{
+diff --git a/PeiYang-Board-ReBorn/Task/MainPageDetail.swift b/PeiYang-Board-ReBorn/Task/MainPageDetail.swift
+index eab3e81..ea6b23a 100644
+--- a/PeiYang-Board-ReBorn/Task/MainPageDetail.swift
++++ b/PeiYang-Board-ReBorn/Task/MainPageDetail.swift
+@@ -38,37 +38,37 @@ struct MainPageDetail: View {
+ //            .frame(width: ScreenWidth,alignment: .topLeading)
+             
+             VStack{
+-                ScrollView(.horizontal,showsIndicators: false) { //Tags
+-                    HStack{
+-                        Image(systemName: "chevron.backward")
+-                            .resizable()
+-                            .scaledToFit()
+-                            .frame(width: ByWidth(Scale: 5.5))
+-                            .clipShape(Circle())
+-                            .foregroundColor(Color.black)
+-                            .padding(.top,ByHeight(Scale: -0.5))
+-                            .padding(.leading,ByWidth(Scale: 0.8))
+-                            .onTapGesture {
+-                                viewRouter.isShow = true
+-                                if(isToCheck) {
+-                                    NotiStore.Notis[number].checked = true
+-                                }
+-                                if(isToUnStar) {
+-                                    NotiStore.Notis[number].stared = false
+-                                }
+-                                presentationMode.wrappedValue.dismiss()
++                HStack{
++                    Image(systemName: "chevron.backward")
++                        .resizable()
++                        .scaledToFit()
++                        .frame(width: ByWidth(Scale: 5.5))
++                        .clipShape(Circle())
++                        .foregroundColor(Color.black)
++                        .padding(.top,ByHeight(Scale: -0.5))
++                        .padding(.leading,ByWidth(Scale: 0.8))
++                        .onTapGesture {
++                            viewRouter.isShow = true
++                            if(isToCheck) {
++                                NotiStore.Notis[number].checked = true
++                            }
++                            if(isToUnStar) {
++                                NotiStore.Notis[number].stared = false
++                            }
++                            presentationMode.wrappedValue.dismiss()
+ 
++                        }
++                    //返回按钮不应该放在这里
++                    ScrollView(.horizontal,showsIndicators: false) { //Tags
++                        HStack{
++                            ForEach(NotiStore.Notis[number].tags.indices, id: \.self){ i in
++                                Text("#\(NotiStore.Notis[number].tags[i])")
++                                    .font(.custom(FZMS, size: ByWidth(Scale: 8)))
++                                    .foregroundColor(Color("Main_Tag_Font"))
+                             }
+-                        //返回按钮不应该放在这里
+-                        Spacer()
+-                        ForEach(NotiStore.Notis[number].tags.indices, id: \.self){ i in
+-                            Text("#\(NotiStore.Notis[number].tags[i])")
+-                                .font(.custom(FZMS, size: ByWidth(Scale: 8)))
+-                                .foregroundColor(Color("Main_Tag_Font"))
+                         }
+-                        //Spacer()
+                     }
+-//                    .padding(.top,ByHeight(Scale: 1.5))
++                    //Spacer()
+                 }
+                 .frame(width: ByWidth(Scale: 95),alignment: .leading)
+                 .padding(.top,ByHeight(Scale: 0.6))

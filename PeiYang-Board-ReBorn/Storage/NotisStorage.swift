@@ -59,7 +59,7 @@ final class NotiStore: ObservableObject {
     }
     
     init(){
-        Notis.append(Noti())
+//        Notis.append(Noti())
         
         if let data = UserDefaults.standard.data(forKey: "Notis"){
             if let Notis = try?JSONDecoder().decode([Noti].self, from: data){
@@ -68,5 +68,3 @@ final class NotiStore: ObservableObject {
         }
     }
 }
-
-var notis = [Noti](repeating: Noti(), count: 7)

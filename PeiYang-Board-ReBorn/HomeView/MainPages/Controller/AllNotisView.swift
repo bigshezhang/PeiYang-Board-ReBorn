@@ -10,7 +10,7 @@ import SwiftUI
 struct AllNotisView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var NotiStore : NotiStore
-    @State var isPresented = false
+    @State var isSearching = false
     var body: some View {
         NavigationView {
             ZStack{
@@ -36,7 +36,7 @@ struct AllNotisView: View {
                             .padding(.top,ByHeight(Scale: -5))
                             .padding(.bottom,ByHeight(Scale: 0.1))
                         Button {
-                            SearchView()
+                            isSearching.toggle()
                         } label: {
                             ZStack{
                                 Rectangle()
@@ -54,7 +54,7 @@ struct AllNotisView: View {
                                 }
                             }
                         }
-                        .fullScreenCover(isPresented: $isPresented) {
+                        .fullScreenCover(isPresented: $isSearching) {
                             print("搜索")
                         } content: {
                             SearchView()

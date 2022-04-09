@@ -10,6 +10,7 @@ import SwiftUI
 struct MainPageHeader: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var NotiStore: NotiStore
     var body: some View {
         ZStack{
             HStack {
@@ -39,7 +40,7 @@ struct MainPageHeader: View {
                         Text("总消息数")
                             .foregroundColor(Color("Main_Header_Font"))
                             
-                        Text("\(notis.count)")
+                        Text("\(NotiStore.Notis.count)")
                             .frame(width: 40)
                             .foregroundColor(Color("Main_Header_Font"))
                     }

@@ -38,37 +38,37 @@ struct MainPageDetail: View {
 //            .frame(width: ScreenWidth,alignment: .topLeading)
             
             VStack{
-                ScrollView(.horizontal,showsIndicators: false) { //Tags
-                    HStack{
-                        Image(systemName: "chevron.backward")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: ByWidth(Scale: 5.5))
-                            .clipShape(Circle())
-                            .foregroundColor(Color.black)
-                            .padding(.top,ByHeight(Scale: -0.5))
-                            .padding(.leading,ByWidth(Scale: 0.8))
-                            .onTapGesture {
-                                viewRouter.isShow = true
-                                if(isToCheck) {
-                                    NotiStore.Notis[number].checked = true
-                                }
-                                if(isToUnStar) {
-                                    NotiStore.Notis[number].stared = false
-                                }
-                                presentationMode.wrappedValue.dismiss()
-
+                HStack{
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: ByWidth(Scale: 5.5))
+                        .clipShape(Circle())
+                        .foregroundColor(Color.black)
+                        .padding(.top,ByHeight(Scale: -0.5))
+                        .padding(.leading,ByWidth(Scale: 0.8))
+                        .onTapGesture {
+                            viewRouter.isShow = true
+                            if(isToCheck) {
+                                NotiStore.Notis[number].checked = true
                             }
-                        //返回按钮不应该放在这里
-                        Spacer()
-                        ForEach(NotiStore.Notis[number].tags.indices, id: \.self){ i in
-                            Text("#\(NotiStore.Notis[number].tags[i])")
-                                .font(.custom(FZMS, size: ByWidth(Scale: 8)))
-                                .foregroundColor(Color("Main_Tag_Font"))
+                            if(isToUnStar) {
+                                NotiStore.Notis[number].stared = false
+                            }
+                            presentationMode.wrappedValue.dismiss()
+
                         }
-                        //Spacer()
+                    //返回按钮不应该放在这里
+                    ScrollView(.horizontal,showsIndicators: false) { //Tags
+                        HStack{
+                            ForEach(NotiStore.Notis[number].tags.indices, id: \.self){ i in
+                                Text("#\(NotiStore.Notis[number].tags[i])")
+                                    .font(.custom(FZMS, size: ByWidth(Scale: 8)))
+                                    .foregroundColor(Color("Main_Tag_Font"))
+                            }
+                        }
                     }
-//                    .padding(.top,ByHeight(Scale: 1.5))
+                    //Spacer()
                 }
                 .frame(width: ByWidth(Scale: 95),alignment: .leading)
                 .padding(.top,ByHeight(Scale: 0.6))
