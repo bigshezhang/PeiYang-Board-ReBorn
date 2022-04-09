@@ -22,12 +22,17 @@ struct SearchView: View {
     var body: some View {
         NavigationView(){
             ZStack{
-                Image("SearchView-1")
-                    .offset(y:-270)
-                Image("SearchView-2")
-                    .offset(y:-270)
+                VStack{
+                    ZStack{
+                        Image("SearchView-1")
+                        Image("SearchView-2")
+                    }
+                    Spacer()
+                }
+                
                 VStack{
                     SearchTopView(historySearch: $historySearch, stringOfText: $stringOfText, isSearching: $isSearching)
+                        .padding(.top,70)
                     if !isSearching{
                         HStack{
                             Text("搜索记录")
@@ -136,9 +141,10 @@ struct SearchView: View {
                 }
             }
         }
+            .ignoresSafeArea(.all)
             .navigationBarHidden(true)
         }
-        
+
        
 }
 
@@ -152,23 +158,43 @@ fileprivate struct SearchTopView: View{
         ZStack{
             Rectangle()
                 .fill(Color.white)
-                .frame(width: 326, height: 70)
+                .frame(width: 360, height: 50)
                 .cornerRadius(35)
-            HStack{
-                ZStack{
-                    questionImage()
-                }.offset(x:35 , y:-10)
+                .overlay(
+                    HStack{
+                        Image(systemName: "magnifyingglass")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                            .rotationEffect(.degrees(75))
+                            .padding(.leading, 20)
+                            .foregroundColor(Color.blue.opacity(0.4))
+                        
+                        TextField("", text: $stringOfText, onCommit: {
+                            isSearching.toggle()
+                        })
+                            .font(Font.system(size: 20))
+                            .background(Color.white)
+                            .foregroundColor(Color.gray)
+                            .frame(width: 300, height: 70)
+//                        Spacer()
+                    }
+                )
+            
+            
+            
+            
+//            Rectangle()
+//                .fill(Color.white)
+//                .frame(width: 326, height: 70)
+//                .cornerRadius(35)
+//            HStack{
+//                ZStack{
+//                    questionImage()
+//                }.offset(x:35 , y:-10)
                 
-                TextField("", text: $stringOfText, onCommit: {
-                    isSearching.toggle()
-                })
-                    .font(Font.system(size: 30))
-                    .background(Color.white)
-                    .foregroundColor(Color.gray)
-                    .padding(EdgeInsets(top: 2, leading: 35, bottom: 0, trailing: 21))
-                    .frame(width: 300, height: 70)
+                
                     
-            }
+//            }
         }
     }
 

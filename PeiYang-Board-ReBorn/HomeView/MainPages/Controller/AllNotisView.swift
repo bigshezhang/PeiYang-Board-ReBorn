@@ -40,18 +40,21 @@ struct AllNotisView: View {
                         } label: {
                             ZStack{
                                 Rectangle()
-                                    .fill(Color.white)
-                                    .frame(width: 326, height: 70)
+                                    .fill(Color("SettingViewBackChevron").opacity(0.5))
+                                    .frame(width: 360, height: 50)
                                     .cornerRadius(35)
-                                HStack{
-                                    ZStack{
-                                        questionImage()
-                                    }.offset(x:35 , y:-10)
-                                    
-                                    Text("")
-                                        .frame(width: 300, height: 70)
-                                        
-                                }
+                                    .overlay(
+                                        HStack{
+                                            Image(systemName: "magnifyingglass")
+                                                .resizable()
+                                                .frame(width: 30, height: 30)
+                                                .rotationEffect(.degrees(75))
+                                                .padding(.leading, 20)
+                                                .foregroundColor(Color.blue.opacity(0.4))
+
+                                            Spacer()
+                                        }
+                                    )
                             }
                         }
                         .fullScreenCover(isPresented: $isSearching) {
