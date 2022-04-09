@@ -22,6 +22,7 @@ struct MainView: View {
                 NotDoneView()
             case .StarBox:
                 StarBoxView()
+//                NotiAdd()
             case .Search:
 //                SearchView()
 //                AllNotisView()

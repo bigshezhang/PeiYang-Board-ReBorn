@@ -11,10 +11,16 @@ struct PublishView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var NotiStore: NotiStore
+    @EnvironmentObject var userData: UserData
     
+    @State var AddedNoti = Noti()
+    
+    @State var title : String = ""
     @State var tags : [String] = []
     @State var mainText : String = ""
     @State var tempTag : String = ""
+    
+    @FocusState private var editorIsFocused: Bool
     
     var body: some View {
         
@@ -41,6 +47,17 @@ struct PublishView: View {
                             presentationMode.wrappedValue.dismiss()
                         }
 
+                    TextField(text: $AddedNoti.title, label: {
+                        Text("输入标题")
+                    })
+                    .font(.system(size: 22))
+                    .overlay(Rectangle()
+                        .frame(width: nil, height: 1)
+                        .foregroundColor(Color.gray)
+                        .padding(.top,35))
+//                        .padding(.horizontal)
+                        
+                    
                     Capsule()
                         .foregroundColor(Color("Primary"))
                         .frame(width: 160, height: 40)
@@ -51,7 +68,7 @@ struct PublishView: View {
                             .padding(.horizontal)
                         )
                         .onSubmit {
-                            tags.append(tempTag)
+                            AddedNoti.tags.append(tempTag)
                             tempTag = ""
                         }
                 }
@@ -60,7 +77,7 @@ struct PublishView: View {
                 
                 ScrollView(.horizontal,showsIndicators: false){
                     HStack{
-                        ForEach(tags, id: \.self){ tag in
+                        ForEach(AddedNoti.tags, id: \.self){ tag in
                             Text("#\(tag)")
                                 .font(.custom(FZMS, size: 24))
                                 .foregroundColor(Color("Main_Tag_Font"))
@@ -87,6 +104,8 @@ struct PublishView: View {
 
                 }
                 
+
+                
                 ScrollView(.vertical,showsIndicators: false){
                     Image("user")
                         .resizable()
@@ -95,26 +114,38 @@ struct PublishView: View {
                         .clipped()
                         .cornerRadius(ByWidth(Scale:5))
 
+
+//                    TextEditor(text: $mainText)
+//                                .foregroundColor(Color.gray)
+//                                .font(.custom("HelveticaNeue", size: 13))
+//                                .frame(width: ScreenWidth*0.8, height:ScreenHeight*0.4)
                     
-                    
-                    
-                    TextEditor(text: $mainText)
-                        .font(.system(size: ByHeight(Scale: 2.5)))
-                        .lineSpacing(ByHeight(Scale: 0.8))
-                        .frame(width: ByWidth(Scale: 80), alignment: .top)
-                        .padding(.top,ByHeight(Scale: 1.8))
-                        .padding(ByWidth(Scale: 3)) //留白 80 + 3 + 3 = 86
-                        .padding(.bottom, ByHeight(Scale: 20)) //下方留白
-                        .background(Color.white.opacity(0.9).blur(radius: 10))
-                        .cornerRadius(ByWidth(Scale: 5))
-                        .offset(y: ByHeight(Scale: -1))  //迫不得已用offset
+                    Rectangle()
+                        .frame(width: ScreenWidth*0.85, height: ScreenHeight*0.35)
+                        .foregroundColor(Color.white.opacity(0.9))
+                        .blur(radius: 5)
+//                        .padding(.top,ByHeight(Scale: 1.8))
+//                        .padding(ByWidth(Scale: 3)) //留白 80 + 3 + 3 = 86
+//                        .background(Color.white.opacity(0.9).blur(radius: 10))
+                        .cornerRadius(ByWidth(Scale: 8))
+//                        .offset(y: ByHeight(Scale: -1))  //迫不得已用offset
+                        .padding(.top, ByHeight(Scale: 1.8))
+                        .overlay(
+                            TextEditor(text: $AddedNoti.main_text)
+                                .font(.system(size: 18))
+                                .foregroundColor(Color.gray)
+                                .padding()
+                                .focused($editorIsFocused)
+                                .dismissKeyboard()
+                        )
 
                     Spacer()
                         .navigationBarHidden(true)
                     
                     Button {
                         submit()
-                        self.presentationMode.wrappedValue.dismiss()
+                        viewRouter.isShow.toggle()
+                        viewRouter.currentPage = .AllNotis
 
                     } label: {
                         Capsule()
@@ -129,17 +160,26 @@ struct PublishView: View {
                 }
             }
         }
+        .onTapGesture {
+            UIApplication.shared.keyWindow?.endEditing(true)
+
+        }
         .onAppear {
             viewRouter.isShow.toggle()
         }
     }
     func submit() -> Void{
-//        NotiStore.Notis.append(Noti(title = "233"))
+        NotiStore.Notis.append(AddedNoti)
+        
+        NotiStore.Notis.append(Noti())
     }
 }
 
 struct PublishView_Previews: PreviewProvider {
     static var previews: some View {
         PublishView()
+            .environmentObject(ViewRouter())
+            .environmentObject(UserData())
+            .environmentObject(NotiStore())
     }
 }

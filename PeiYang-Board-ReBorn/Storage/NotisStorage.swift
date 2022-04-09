@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 struct Noti: Identifiable, Codable, Equatable{
-    var checked: Bool
-    var stared: Bool
-    var id: Int
+    var checked = false
+    var stared = false
+    var id: UUID
     var title: String
     var main_text: String  //正文
     var publisher: String
@@ -20,8 +20,8 @@ struct Noti: Identifiable, Codable, Equatable{
 //    var img: Image
     
     init(){
-        id = 1
-        title = "今天不上班"
+        id = UUID()
+        title = "\(id)今天不上班"
         main_text = "好累啊，早点睡觉吧，明天早点起床去图书馆继续卷，卷4⃣️你们"
         publisher = "我"
         tags = ["摸鱼","放假","打电动"]
@@ -38,6 +38,15 @@ struct Noti: Identifiable, Codable, Equatable{
 //        publish_time = "00:00"
 //        id = 1
     }
+    
+    init(id: UUID, title: String, main_text: String,tags: [String], publisher: String, publish_time: String){
+        self.id = UUID()
+        self.title = title
+        self.main_text = main_text
+        self.tags = tags
+        self.publisher = publisher
+        self.publish_time = publish_time
+    }
 }
 
 final class NotiStore: ObservableObject {
@@ -50,6 +59,8 @@ final class NotiStore: ObservableObject {
     }
     
     init(){
+        Notis.append(Noti())
+        
         if let data = UserDefaults.standard.data(forKey: "Notis"){
             if let Notis = try?JSONDecoder().decode([Noti].self, from: data){
                 self.Notis = Notis

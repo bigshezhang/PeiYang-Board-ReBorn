@@ -12,6 +12,7 @@
 		E0189A102800A3EA0050B6EA /* PublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A0F2800A3EA0050B6EA /* PublishView.swift */; };
 		E0189A12280120720050B6EA /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A11280120720050B6EA /* MultiLineTextField.swift */; };
 		E02430F727B6C939004856EF /* ProfileOnRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02430F627B6C939004856EF /* ProfileOnRegister.swift */; };
+		E07FF85E28012ECB00B9BCC1 /* DragToDismissKeyBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = E07FF85D28012ECB00B9BCC1 /* DragToDismissKeyBoard.swift */; };
 		E08246C227B6148800A5A838 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C127B6148800A5A838 /* UserData.swift */; };
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
 		E08246CB27B6168600A5A838 /* FZMSTJW.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E08246C827B6168600A5A838 /* FZMSTJW.TTF */; };
@@ -64,6 +65,7 @@
 		E0189A0F2800A3EA0050B6EA /* PublishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishView.swift; sourceTree = "<group>"; };
 		E0189A11280120720050B6EA /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
 		E02430F627B6C939004856EF /* ProfileOnRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnRegister.swift; sourceTree = "<group>"; };
+		E07FF85D28012ECB00B9BCC1 /* DragToDismissKeyBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragToDismissKeyBoard.swift; sourceTree = "<group>"; };
 		E08246C127B6148800A5A838 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
 		E08246C827B6168600A5A838 /* FZMSTJW.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = FZMSTJW.TTF; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				E08246FB27B617CC00A5A838 /* ScreenBounds.swift */,
 				E08246FD27B617DE00A5A838 /* NumberToChinese.swift */,
 				E0189A11280120720050B6EA /* MultiLineTextField.swift */,
+				E07FF85D28012ECB00B9BCC1 /* DragToDismissKeyBoard.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E07FF85E28012ECB00B9BCC1 /* DragToDismissKeyBoard.swift in Sources */,
 				E08246FC27B617CC00A5A838 /* ScreenBounds.swift in Sources */,
 				E08246F527B6177400A5A838 /* Home_components.swift in Sources */,
 				E0A8BD5C27B6B923009E9806 /* TextFieldExtention.swift in Sources */,

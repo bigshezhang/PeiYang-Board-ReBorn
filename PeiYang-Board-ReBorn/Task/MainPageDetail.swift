@@ -161,7 +161,7 @@ struct MainPageDetail: View {
 
 struct MainPageDetail_Previews: PreviewProvider {
     static var previews: some View {
-        MainPageDetail(number: 1)
+        MainPageDetail(number: 0)
             .environmentObject(ViewRouter())
             .environmentObject(NotiStore())
     }
