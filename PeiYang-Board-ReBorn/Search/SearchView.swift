@@ -73,7 +73,7 @@ struct SearchView: View {
                                     Text("#疫情防控")
                                         .font(.custom(FZMS, size: 25))
                                         .padding(EdgeInsets(top: 10, leading: 9, bottom: 10, trailing: 10))
-                                        .background(Color.yellow)
+                                        .background(Color.init(red: 255, green: 235, blue: 197))
                                         .cornerRadius(30)
                                     Spacer()
                                 }.padding(.leading, 20)
@@ -89,7 +89,7 @@ struct SearchView: View {
                                         Text("#疫情防控")
                                             .font(.custom(FZMS, size: 20))
                                             .padding(EdgeInsets(top: 5, leading: 7, bottom: 5, trailing: 9))
-                                            .background(Color.yellow)
+                                            .background(Color.init(red: 255, green: 235, blue: 197))
                                             .cornerRadius(30)
                                         Spacer()
                                     }.padding(.leading, 20)
@@ -104,7 +104,7 @@ struct SearchView: View {
                                         Text("#疫情防控")
                                             .font(.custom(FZMS, size: 20))
                                             .padding(EdgeInsets(top: 5, leading: 7, bottom: 5, trailing: 9))
-                                            .background(Color.yellow)
+                                            .background(Color.init(red: 255, green: 235, blue: 197))
                                             .cornerRadius(30)
                                         Spacer()
                                     }.padding(.leading, 20)
@@ -176,6 +176,16 @@ fileprivate struct SearchTopView: View{
 }
 }
 
+extension Color {
+    init(red: Int, green: Int, blue: Int) {
+
+        let normalizedRed = CGFloat(red) / 255
+        let normalizedGreen = CGFloat(green) / 255
+        let normalizedBlue = CGFloat(blue) / 255
+
+        self.init(red: normalizedRed, green: normalizedGreen, blue: normalizedBlue)
+    }
+}
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()

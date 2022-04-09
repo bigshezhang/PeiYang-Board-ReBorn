@@ -10,6 +10,7 @@ import SwiftUI
 struct AllNotisView: View {
     @EnvironmentObject var viewRouter: ViewRouter
     @EnvironmentObject var NotiStore : NotiStore
+    @State var isPresented = false
     var body: some View {
         NavigationView {
             ZStack{
@@ -34,7 +35,31 @@ struct AllNotisView: View {
                         MainWeekIndicator()
                             .padding(.top,ByHeight(Scale: -5))
                             .padding(.bottom,ByHeight(Scale: 0.1))
-
+                        Button {
+                            SearchView()
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .fill(Color.white)
+                                    .frame(width: 326, height: 70)
+                                    .cornerRadius(35)
+                                HStack{
+                                    ZStack{
+                                        questionImage()
+                                    }.offset(x:35 , y:-10)
+                                    
+                                    Text("")
+                                        .frame(width: 300, height: 70)
+                                        
+                                }
+                            }
+                        }
+                        .fullScreenCover(isPresented: $isPresented) {
+                            print("搜索")
+                        } content: {
+                            SearchView()
+                        }
+                      
                         ForEach(NotiStore.Notis.indices, id: \.self){ i in
                             MainPageNaviRow(number: i)
                         }
