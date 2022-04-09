@@ -76,7 +76,7 @@ struct MainPageNaviRow: View {
         .frame(width: ByWidth(Scale: 100), height: ByHeight(Scale: 8.5), alignment: .center)
         .onTapGesture {
             isActive = true
-            viewRouter.isShow = false
+            viewRouter.isShow.toggle()
         }
     }
 }

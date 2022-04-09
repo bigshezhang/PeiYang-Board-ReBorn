@@ -10,6 +10,7 @@
 		27CB9A98895EEA10DF95BEAF /* Pods_PeiYang_Board_ReBorn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */; };
 		E0189A0E280084690050B6EA /* NotiAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A0D280084690050B6EA /* NotiAdd.swift */; };
 		E0189A102800A3EA0050B6EA /* PublishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A0F2800A3EA0050B6EA /* PublishView.swift */; };
+		E0189A12280120720050B6EA /* MultiLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0189A11280120720050B6EA /* MultiLineTextField.swift */; };
 		E02430F727B6C939004856EF /* ProfileOnRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02430F627B6C939004856EF /* ProfileOnRegister.swift */; };
 		E08246C227B6148800A5A838 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08246C127B6148800A5A838 /* UserData.swift */; };
 		E08246CA27B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */; };
@@ -61,6 +62,7 @@
 		BC73143020A9DA4923283B79 /* Pods_PeiYang_Board_ReBorn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PeiYang_Board_ReBorn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0189A0D280084690050B6EA /* NotiAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiAdd.swift; sourceTree = "<group>"; };
 		E0189A0F2800A3EA0050B6EA /* PublishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishView.swift; sourceTree = "<group>"; };
+		E0189A11280120720050B6EA /* MultiLineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiLineTextField.swift; sourceTree = "<group>"; };
 		E02430F627B6C939004856EF /* ProfileOnRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileOnRegister.swift; sourceTree = "<group>"; };
 		E08246C127B6148800A5A838 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E08246C727B6168600A5A838 /* RTWSShangYaDemo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RTWSShangYaDemo-Regular.ttf"; sourceTree = "<group>"; };
@@ -285,6 +287,7 @@
 				E08246F927B617BF00A5A838 /* CurrentTime.swift */,
 				E08246FB27B617CC00A5A838 /* ScreenBounds.swift */,
 				E08246FD27B617DE00A5A838 /* NumberToChinese.swift */,
+				E0189A11280120720050B6EA /* MultiLineTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				E0BD4F7827B698AB00E7D2FF /* Login&RegisterView.swift in Sources */,
 				E082470027B6185A00A5A838 /* NotisStorage.swift in Sources */,
 				E0AC5E7227B9411A0083BAE3 /* PubSuccess.swift in Sources */,
+				E0189A12280120720050B6EA /* MultiLineTextField.swift in Sources */,
 				E082471E27B61C4C00A5A838 /* NotDoneView.swift in Sources */,
 				E0AC5E7D27BCAD690083BAE3 /* ProfileView.swift in Sources */,
 				E08246F627B6177400A5A838 /* MainPageNaviList.swift in Sources */,

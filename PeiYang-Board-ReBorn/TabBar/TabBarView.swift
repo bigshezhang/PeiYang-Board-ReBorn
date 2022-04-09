@@ -58,7 +58,7 @@ struct TabBarView: View {
                 }
             }
         }
-        .offset(y: viewRouter.isShow ? 0 : 200)
+        .offset(y: viewRouter.isShow ? 0 : 50)
     }
     
     func hideTabBar() -> Void{

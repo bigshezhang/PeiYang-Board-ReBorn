@@ -26,7 +26,7 @@ final class UserData: ObservableObject {
 
 //    @AppStorage("history") var historySearch: [String] = []
     static let historySearch = UserDefaults(suiteName: "history")!
-    func UserAccountClean(){
+    func clean(){
         isNeedLogin = true
         email = "007"
         password = "1234"
@@ -38,6 +38,18 @@ final class UserData: ObservableObject {
         isAdmin = false
         checkupdate = true
 //        historySearch = [""]
+    }
+    
+    func save() {
+        UserDefaults.standard.set(isNeedLogin, forKey: "isNeedLogin")
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(password, forKey: "password")
+        UserDefaults.standard.set(school, forKey: "school")
+        UserDefaults.standard.set(major, forKey: "major")
+        UserDefaults.standard.set(grade, forKey: "grade")
+        UserDefaults.standard.set(inclass, forKey: "inclass")
+        UserDefaults.standard.set(isAdmin, forKey: "isAdmin")
+        UserDefaults.standard.set(checkupdate, forKey: "checkupdate")
     }
     
     

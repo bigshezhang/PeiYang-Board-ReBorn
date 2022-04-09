@@ -31,7 +31,7 @@ struct SettingView: View {
             VStack{
                 HStack{
                     Button {
-                        viewRouter.isShow = true
+                        viewRouter.isShow.toggle()
                         self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
@@ -61,7 +61,9 @@ struct SettingView: View {
                                 .font(.custom(FZMS, size: 30))
                             Button {
                                 withAnimation {
-                                    UserDefaults.standard.set(!userData.isAdmin,forKey:"isAdmin")                                }
+                                    userData.isAdmin.toggle()
+                                    userData.save()
+                                }
                                 strRole = userData.isAdmin ? "管理员" : "用户"
                             } label: {
                                 Capsule()
@@ -129,7 +131,7 @@ struct SettingView: View {
                     }
 
                     Button {
-                        userData.UserAccountClean()
+                        userData.clean()
                         signOut()
                         self.presentationMode.wrappedValue.dismiss()
 

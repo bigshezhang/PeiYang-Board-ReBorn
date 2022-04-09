@@ -26,36 +26,66 @@ struct PublishView: View {
             .ignoresSafeArea(.all)
             
             VStack{
-                ScrollView(.horizontal,showsIndicators: false) { //Tags
-                    HStack{
-                        Image(systemName: "chevron.backward")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: ByWidth(Scale: 5.5))
-                            .clipShape(Circle())
-                            .foregroundColor(Color.black)
-                            .padding(.top,ByHeight(Scale: -0.5))
-                            .padding(.leading,ByWidth(Scale: 0.8))
-                            .onTapGesture {
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                        //返回按钮不应该放在这里
-                        Spacer()
-                        
-                        TextField(text: $tempTag) {
-                            Text("233")
+                HStack{
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: ByWidth(Scale: 5.5))
+                        .clipShape(Circle())
+                        .foregroundColor(Color.black)
+                        .padding(.top,ByHeight(Scale: -0.5))
+                        .padding(.leading,ByWidth(Scale: 0.8))
+                        .onTapGesture {
+                            viewRouter.isShow.toggle()
+                            viewRouter.currentPage = .AllNotis
+                            presentationMode.wrappedValue.dismiss()
                         }
-                            .ignoresSafeArea(.keyboard, edges: .bottom)
-                        
-//                        ForEach(tags, id: \.self){ tag in
-//                            Text("#\(tag)")
-//                                .font(.custom(FZMS, size: ByWidth(Scale: 8)))
-//                                .foregroundColor(Color("Main_Tag_Font"))
-//                        }
-                    }
+
+                    Capsule()
+                        .foregroundColor(Color("Primary"))
+                        .frame(width: 160, height: 40)
+                        .overlay(
+                            TextField(text: $tempTag, label: {
+                                Text("输入tag")
+                            })
+                            .padding(.horizontal)
+                        )
+                        .onSubmit {
+                            tags.append(tempTag)
+                            tempTag = ""
+                        }
                 }
-                .frame(width: ByWidth(Scale: 95),alignment: .leading)
-                .padding(.top,ByHeight(Scale: 0.6))
+                    .frame(width: ByWidth(Scale: 95),alignment: .leading)
+                    .padding(.top,ByHeight(Scale: 0.6))
+                
+                ScrollView(.horizontal,showsIndicators: false){
+                    HStack{
+                        ForEach(tags, id: \.self){ tag in
+                            Text("#\(tag)")
+                                .font(.custom(FZMS, size: 24))
+                                .foregroundColor(Color("Main_Tag_Font"))
+                                .background(
+                                    Capsule()
+                                        .foregroundColor(Color("Primary"))
+                                        .padding(.horizontal, -10)
+                                        .padding(.vertical, -5)
+                                )
+                            
+                            Spacer(minLength: 25)
+                            
+//                            Capsule()
+//                                .foregroundColor(Color("Primary"))
+//                                .frame(width: CGFloat(tag.count*40), height: 35)
+//                                .overlay(
+//                                    Text("#\(tag)")
+//                                        .font(.custom(FZMS, size: 24))
+//                                        .foregroundColor(Color("Main_Tag_Font"))
+//                                )
+                        }
+                    }
+                    .padding(.leading, 40)
+
+                }
                 
                 ScrollView(.vertical,showsIndicators: false){
                     Image("user")
@@ -66,9 +96,9 @@ struct PublishView: View {
                         .cornerRadius(ByWidth(Scale:5))
 
                     
-                    TextField(text: $mainText,label: {
-                        Text("233")
-                    })
+                    
+                    
+                    TextEditor(text: $mainText)
                         .font(.system(size: ByHeight(Scale: 2.5)))
                         .lineSpacing(ByHeight(Scale: 0.8))
                         .frame(width: ByWidth(Scale: 80), alignment: .top)
@@ -81,13 +111,30 @@ struct PublishView: View {
 
                     Spacer()
                         .navigationBarHidden(true)
+                    
+                    Button {
+                        submit()
+                        self.presentationMode.wrappedValue.dismiss()
+
+                    } label: {
+                        Capsule()
+                            .overlay(Text("提交")
+                                        .offset(y:2)
+                                        .font(.custom(FZMS, size: 30))
+                                        .foregroundColor(Color("Blue_ProfileViewSubmit")))
+                            .foregroundStyle(.ultraThinMaterial)
+                    }
+                    .frame(width: 126, height: 60)
+                    .padding(.top, 35)
                 }
-                
             }
-            
-        
-            
         }
+        .onAppear {
+            viewRouter.isShow.toggle()
+        }
+    }
+    func submit() -> Void{
+//        NotiStore.Notis.append(Noti(title = "233"))
     }
 }
 
