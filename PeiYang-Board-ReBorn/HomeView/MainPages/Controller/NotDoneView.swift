@@ -30,9 +30,9 @@ struct NotDoneView: View {
                             }
                             .padding(.top)
                         
-                        MainWeekIndicator()
-                            .padding(.top,ByHeight(Scale: -5))
-                            .padding(.bottom,ByHeight(Scale: 0.1))
+//                        MainWeekIndicator()
+//                            .padding(.top,ByHeight(Scale: -5))
+//                            .padding(.bottom,ByHeight(Scale: 0.1))
 
                         ForEach(NotiStore.Notis.indices,id: \.self){ i in
                             if(NotiStore.Notis[i].checked == false){

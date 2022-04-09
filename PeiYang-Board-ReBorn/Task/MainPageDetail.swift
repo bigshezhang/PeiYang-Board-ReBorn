@@ -62,9 +62,13 @@ struct MainPageDetail: View {
                     ScrollView(.horizontal,showsIndicators: false) { //Tags
                         HStack{
                             ForEach(NotiStore.Notis[number].tags.indices, id: \.self){ i in
-                                Text("#\(NotiStore.Notis[number].tags[i])")
-                                    .font(.custom(FZMS, size: ByWidth(Scale: 8)))
-                                    .foregroundColor(Color("Main_Tag_Font"))
+                                NavigationLink {
+                                    tagView(tag: NotiStore.Notis[number].tags[i])
+                                } label: {
+                                    Text("#\(NotiStore.Notis[number].tags[i])")
+                                        .font(.custom(FZMS, size: ByWidth(Scale: 8)))
+                                        .foregroundColor(Color("Main_Tag_Font"))
+                                }
                             }
                         }
                     }

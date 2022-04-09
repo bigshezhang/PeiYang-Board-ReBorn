@@ -32,9 +32,9 @@ struct AllNotisView: View {
 
                             .padding(.top)
                         
-                        MainWeekIndicator()
-                            .padding(.top,ByHeight(Scale: -5))
-                            .padding(.bottom,ByHeight(Scale: 0.1))
+//                        MainWeekIndicator()
+//                            .padding(.top,ByHeight(Scale: -5))
+//                            .padding(.bottom,ByHeight(Scale: 0.1))
                         Button {
                             isSearching.toggle()
                         } label: {
@@ -57,6 +57,7 @@ struct AllNotisView: View {
                                     )
                             }
                         }
+                        .padding(.top, -30)
                         .fullScreenCover(isPresented: $isSearching) {
                             print("搜索")
                         } content: {
