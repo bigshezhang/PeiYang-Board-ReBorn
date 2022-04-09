@@ -28,10 +28,12 @@ struct MainPageNaviRow: View {
                 HStack{ //Tags
                     ScrollView(.horizontal,showsIndicators: false) {
                         HStack {
-                            ForEach(NotiStore.Notis[number].tags,id: \.self){ tag in
-                                Text("#\(tag)")
+                            ForEach(NotiStore.Notis[number].tags, id: \.self){ tag in
+                                NavigationLink(destination: tagView(tag: tag)){
+                                    Text("#\(tag)")
+                                }
                             }
-//                            .padding(.trailing, ByWidth(Scale: -1))
+//                            .padding(.trailing, ByWidthrScale: -1))
                         }
                         .lineLimit(1)
                     }
@@ -79,12 +81,67 @@ struct MainPageNaviRow: View {
             viewRouter.isShow.toggle()
         }
     }
+    
+    
 }
+
+struct tagView: View {
+    @EnvironmentObject var NotiStore: NotiStore
+    @State var tag: String = ""
+    @Environment(\.presentationMode) var presentationMode
+    var filteredNoti: [Noti]{
+        return NotiStore.Notis.filter{
+            $0.tags.contains(tag)
+        }
+    }
+    var body: some View {
+        HStack{
+            Image(systemName: "chevron.backward")
+                .resizable()
+                .scaledToFit()
+                .frame(width: ByWidth(Scale: 5.5))
+                .clipShape(Circle())
+                .foregroundColor(Color.black)
+                .padding(.top,ByHeight(Scale: -0.5))
+                .padding(.leading,ByWidth(Scale: 0.8))
+                .onTapGesture {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            //返回按钮不应该放在这里
+            Text("#\(tag)")
+                .font(.custom(FZMS, size: ByWidth(Scale: 8)))
+                .foregroundColor(Color("Main_Tag_Font"))
+        }
+        .frame(width: ByWidth(Scale: 95),alignment: .leading)
+        .padding(.top,ByHeight(Scale: 0.6))
+//                .padding(.leading,ByWidth(Scale: 8))
+        
+        ScrollView(.vertical, showsIndicators: false){
+            VStack{
+                ForEach(filteredNoti.indices, id: \.self){ i in
+                    NavigationLink {
+                        MainPageDetail(number: i)
+                    } label: {
+                        MainPageNaviRow(number: i)
+                    }
+                }
+                Spacer()
+                    .padding(.bottom,ByHeight(Scale: 20))
+            }
+        }
+        .navigationBarHidden(true)
+        
+        
+        
+    }
+}
+
 
 struct MainPageNaviRow_Previews: PreviewProvider {
     static var previews: some View {
         MainPageNaviRow(number: 1)
             .environmentObject(ViewRouter())
+            .environmentObject(NotiStore())
     }
 
 }
